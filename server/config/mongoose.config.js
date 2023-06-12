@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
-const dbName = "movieDB";
-mongoose.connect(`mongodb://localhost/${dbName}`, {
+const dbName = "restaurant_randomizer_DB";
+
+mongoose.connect(`mongodb://localhost:27017/${dbName}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(()=>console.log(`Connected to ${dbName} database!`))
-    .catch((err)=>console.log(err));      
+    .then(()=>console.log(`Connected to ${dbName}!`))
+    .catch((err)=>console.log('Something went wrong while connecting to the database ', err));      

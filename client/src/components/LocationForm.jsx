@@ -1,0 +1,44 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const LocationForm = (props) => {
+
+    const [location, setLocation] = useState("");
+    const [errors, setErrors] = useState("");
+
+    const {fetchedData, setFetchedData} = props;
+
+    const locationValidator = () => {
+        let isValid = true;
+        if (!location.length > 0) {
+            isValid = false;
+        }
+        return isValid;
+    }
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        setErrors("");
+        if(locationValidator()) {
+            fetchData();
+        }
+        else {
+            setErrors("This field may not be blank.")
+        }
+    }
+
+    return (
+        <div>
+            {errors ? <p className="text-danger">{errors}</p> : ""}
+            <form onSubmit={submitHandler}>
+                <div className="form-group">
+                    <label htmlFor="location">Please enter your location.</label>
+                    <input type="text" name="location" id="location" value={location} onChange={(e) => setLocation(e.target.value)} className="form-control" />
+                </div>
+                <input type="submit" value="Find Restaurants Near Me" className="btn btn-submit"/>
+            </form>
+        </div>
+    )
+}
+
+export default ZipcodeForm;
