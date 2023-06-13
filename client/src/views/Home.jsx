@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import LocationForm from '../components/LocationForm';
 
 const Home = (props) => {
 
@@ -7,7 +7,7 @@ const Home = (props) => {
 
     return (
         <div>
-            
+            <LocationForm fetchedData={fetchedData} setFetchedData={setFetchedData} />
         </div>
     )
 }

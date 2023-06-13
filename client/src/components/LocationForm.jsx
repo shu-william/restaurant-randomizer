@@ -20,7 +20,10 @@ const LocationForm = (props) => {
         e.preventDefault();
         setErrors("");
         if(locationValidator()) {
-            fetchData();
+            axios.get('http://localhost:8000/yelp_api/' + location)
+                .then(res => {
+                    console.log(res.data);
+                })
         }
         else {
             setErrors("This field may not be blank.")
@@ -35,10 +38,10 @@ const LocationForm = (props) => {
                     <label htmlFor="location">Please enter your location.</label>
                     <input type="text" name="location" id="location" value={location} onChange={(e) => setLocation(e.target.value)} className="form-control" />
                 </div>
-                <input type="submit" value="Find Restaurants Near Me" className="btn btn-submit"/>
+                <input type="submit" value="Find Restaurants Near Me" className="btn btn-primary my-3"/>
             </form>
         </div>
     )
 }
 
-export default ZipcodeForm;
+export default LocationForm;
