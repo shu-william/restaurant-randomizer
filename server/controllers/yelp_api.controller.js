@@ -1,11 +1,13 @@
 const axios = require('axios');
 require('dotenv').config();
 
+const API_KEY = process.env.API_KEY;
+
 module.exports.getRestaurantsByLocation = (req, res) => {
     const options = {
         headers: {
             accept: 'application/json',
-            Authorization: 'Bearer EQJgo6yP0c7cHmKQmLTTwSPwno7Ivii2vhhwCsDnTlsEalb9MgXoy96jwThYLRV8OupyrSrWDVgyBL6lX14YfMCrtRIyTF5Avd_dnpiicpB862VYMpWeNTTPU4WGZHYx'
+            Authorization: API_KEY
         },
         params: {
             location: req.params.location,
