@@ -1,44 +1,46 @@
 const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-const JWT_KEY = process.env.JWT_KEY;
+const secret = process.env.JWT_KEY;
 
 module.exports.findOneUser = (req, res) => {
-    User.findById(req.params.id)
+    console.log(req.cookie)
+    User.findById(req.cookie)
         .then(oneUser => res.json(oneUser))
         .catch(err => res.json({ message: "Something went wrong retrieving user information.", error: err }));
 }
 
-module.exports.createUser = (req, res) => {
+module.exports.createUser = (req, res) => { // add functionality to check for existing users
     User.create(req.body)
         .then(user => {
             const userToken = jwt.sign({
                 id: user._id
-            }, JWT_KEY);
+            }, secret);
             res
                 .cookie("usertoken", userToken, {
                     httpOnly: true
                 })
                 .json({ message: "Login success!", user: user });
         })
-        .catch(err => res.json({ message: "Something went wrong creating a new user.", error: err }));
+        .catch(err => res.status(400).json(err));
 }
 
 module.exports.loginUser = async(req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user === null) {
-        return res.sendStatus({ status: 400, message: "The user could not be found." });
+        return res.status(400).send("The specified email could not be found.");
     }
 
     const correctPassword = await bcrypt.compare(req.body.password, user.password);
     if(!correctPassword) {
-        return res.sendStatus({ status: 400, message: "Password is incorrect." });
+        return res.status(400).send("The password you entered is incorrect.");
     }
 
     const userToken = jwt.sign({
         id: user._id
-    }, JWT_KEY);
+    }, secret);
 
     res
         .cookie("usertoken", userToken, {

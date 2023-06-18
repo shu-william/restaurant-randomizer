@@ -1,9 +1,17 @@
 const UserController = require('../controllers/user.controller');
+const { authenticate } = require('../config/jwt.config');
 
 module.exports = app => {
+    app.use(function(req, res, next) {
+        res.header(
+            "Access-Control-Allow-Headers",
+            "Origin, Content-Type, Accept"
+        );
+        next();
+    })
     app.post('/api/users/register', UserController.createUser);
     app.post('/api/users/login', UserController.loginUser);
     app.post('/api/users/logout', UserController.logout);
-    app.get('/api/users/:id', UserController.findOneUser);
+    app.get('/api/users/favorites', authenticate, UserController.findOneUser);
 
 }

@@ -18,7 +18,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required."],
         minlength: [8, "Password must be at least 8 characters."]
-    }
+    },
+    favorites: []
 }, {timestamps: true});
 
 UserSchema.virtual('confirmPassword')
@@ -27,7 +28,7 @@ UserSchema.virtual('confirmPassword')
 
 UserSchema.pre('validate', function(next) {
     if (this.password !== this.confirmPassword) {
-        this.invalidate('confirmPassword', 'Password must match confirm password');
+        this.invalidate('confirmPassword', 'Password must match confirm password.');
     }
     next();
     });
