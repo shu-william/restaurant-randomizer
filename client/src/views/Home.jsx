@@ -4,12 +4,16 @@ import RestaurantList from '../components/RestaurantList';
 
 const Home = (props) => {
 
+    const {favoriteRestaurants, setFavoriteRestaurants} = props;
     const [fetchedData, setFetchedData] = useState({});
 
     return (
         <div>
             <LocationForm fetchedData={fetchedData} setFetchedData={setFetchedData} />
-            <RestaurantList fetchedData={fetchedData} setFetchedData={setFetchedData} />
+            <RestaurantList 
+                fetchedData={fetchedData} setFetchedData={setFetchedData} 
+                favoriteRestaurants={favoriteRestaurants} setFavoriteRestaurants={setFavoriteRestaurants} 
+            />
         </div>
     )
 }

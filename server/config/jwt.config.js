@@ -12,3 +12,8 @@ module.exports.authenticate = (req, res, next) => {
         }
     });
 }
+module.exports.getIdFromCookie = (req, res, next) => {
+    const decoded = jwt.verify(req.cookies.usertoken, secret);
+    req.userId = decoded.id;
+    next();
+}

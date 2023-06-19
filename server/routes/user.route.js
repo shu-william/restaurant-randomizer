@@ -1,5 +1,6 @@
 const UserController = require('../controllers/user.controller');
-const { authenticate } = require('../config/jwt.config');
+const FavoritesController = require('../controllers/favorites.controller');
+const { authenticate, getIdFromCookie } = require('../config/jwt.config');
 
 module.exports = app => {
     app.use(function(req, res, next) {
@@ -12,6 +13,7 @@ module.exports = app => {
     app.post('/api/users/register', UserController.createUser);
     app.post('/api/users/login', UserController.loginUser);
     app.post('/api/users/logout', UserController.logout);
-    app.get('/api/users/favorites', authenticate, UserController.findOneUser);
+    app.get('/api/users/favorites', authenticate, getIdFromCookie, UserController.findOneUser);
+    app.patch('/api/users/favorites', authenticate, getIdFromCookie, FavoritesController.addToFavorites);
 
 }

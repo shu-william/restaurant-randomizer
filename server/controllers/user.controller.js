@@ -6,9 +6,8 @@ require('dotenv').config();
 const secret = process.env.JWT_KEY;
 
 module.exports.findOneUser = (req, res) => {
-    console.log(req.cookie)
-    User.findById(req.cookie)
-        .then(oneUser => res.json(oneUser))
+    User.findById(req.userId)
+        .then(oneUser => res.json(oneUser)) // need to change this so not all the user information gets sent to client
         .catch(err => res.json({ message: "Something went wrong retrieving user information.", error: err }));
 }
 
