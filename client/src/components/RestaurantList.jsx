@@ -30,12 +30,12 @@ const RestaurantList = (props) => {
                 fetchedData.length > 0 ?
                 fetchedData.map((restaurant) => {
                     return (
-                        <div key={restaurant.id}>
+                        <div key={restaurant.id} className="my-3">
                             <h3>{restaurant.name}</h3>
                             <p>{restaurant.location.address1}, {restaurant.location.city} {restaurant.location.zip_code}</p>
                             <p>{restaurant.rating} Stars out of {restaurant.review_count} reviews</p>
                             {/* get button to show only when logged in */}
-                            <button onClick={(e) => addFavorite(restaurant)}>Add to favorites</button> 
+                            <button onClick={(e) => addFavorite(restaurant)} className="btn btn-info">Add to favorites</button> 
                         </div>
                     )
                 })

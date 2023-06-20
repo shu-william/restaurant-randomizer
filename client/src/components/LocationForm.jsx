@@ -34,7 +34,7 @@ const LocationForm = (props) => {
     return (
         <div>
             {errors ? <p className="text-danger">{errors}</p> : ""}
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className="form-inline">
                 <div className="form-group">
                     <label htmlFor="location">Please enter your location.</label>
                     <input type="text" name="location" id="location" value={location} onChange={(e) => setLocation(e.target.value)} className="form-control" />

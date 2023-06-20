@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 
 const Favorites = (props) => {
 
@@ -27,16 +28,17 @@ const Favorites = (props) => {
     }
 
     return (
-        <div>
+        <div className="col-md-10 mx-auto my-3">
+            <Navbar />
             <h1>Favorites</h1>
             {
                 favoriteRestaurants.map((restaurant) => {
                     return (
-                        <div key={restaurant.id}>
+                        <div key={restaurant.id} className="my-3">
                             <h3>{restaurant.name}</h3>
                             <p>{restaurant.location.address1}, {restaurant.location.city} {restaurant.location.zip_code}</p>
                             <p>{restaurant.rating} Stars out of {restaurant.review_count} reviews</p>
-                            <button onClick={(e) => removeFavorite(restaurant.id)}>Remove from favorites</button>
+                            <button onClick={(e) => removeFavorite(restaurant.id)} className="btn btn-info">Remove from favorites</button>
                         </div>                       
                     )
                 })
