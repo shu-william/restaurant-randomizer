@@ -9,21 +9,17 @@ const RestaurantList = (props) => {
         axios.get("http://localhost:8000/api/users/favorites", { withCredentials: true })
             .then(res => {
                 console.log(res)
-                setFavoriteRestaurants(res.data.favorites)
+                setFavoriteRestaurants(res.data.favorites);
             })
             .catch(err => console.log(err))
     }, [])
 
-    function favoriteHandler(restaurant) {
-        axios.patch('http://localhost:8000/api/users/favorites', {
+    function addFavorite(restaurant) {
+        axios.patch("http://localhost:8000/api/users/favorites", {
             "$push": 
-                {"favorites":
-                    restaurant
-                }
+                {"favorites": restaurant}
         }, { withCredentials: true })
-            .then(res => {
-                console.log(res);
-            })
+            .then(res => console.log(res))
             .catch(err => console.log(err))
     }
 
@@ -38,7 +34,8 @@ const RestaurantList = (props) => {
                             <h3>{restaurant.name}</h3>
                             <p>{restaurant.location.address1}, {restaurant.location.city} {restaurant.location.zip_code}</p>
                             <p>{restaurant.rating} Stars out of {restaurant.review_count} reviews</p>
-                            <button onClick={(e) => favoriteHandler(restaurant)}>Add to favorites</button>
+                            {/* get button to show only when logged in */}
+                            <button onClick={(e) => addFavorite(restaurant)}>Add to favorites</button> 
                         </div>
                     )
                 })
@@ -48,4 +45,4 @@ const RestaurantList = (props) => {
     )
 }
 
-export default RestaurantList
+export default RestaurantList;
