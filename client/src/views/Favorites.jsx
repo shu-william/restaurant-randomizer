@@ -7,6 +7,7 @@ const Favorites = (props) => {
     const {favoriteRestaurants, setFavoriteRestaurants} = props;
 
     useEffect(() => {
+        setFavoriteRestaurants([]);
         axios.get("http://localhost:8000/api/users/favorites", { withCredentials:true })
             .then(res => {
                 console.log(res)
