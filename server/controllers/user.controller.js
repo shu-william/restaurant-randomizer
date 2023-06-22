@@ -7,7 +7,10 @@ const secret = process.env.JWT_KEY;
 
 module.exports.findOneUser = (req, res) => {
     User.findById(req.userId)
-        .then(oneUser => res.json(oneUser)) // need to change this so not all the user information gets sent to client
+        .then(oneUser => {
+            const { password, ...userInfo } = oneUser._doc;
+            res.json({ user: userInfo });
+        })
         .catch(err => res.json({ message: "Something went wrong retrieving user information.", error: err }));
 }
 
