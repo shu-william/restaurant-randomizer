@@ -11,7 +11,7 @@ const Favorites = (props) => {
         axios.get("http://localhost:8000/api/users/favorites", { withCredentials:true })
             .then(res => {
                 console.log(res)
-                setFavoriteRestaurants(res.data.favorites);
+                setFavoriteRestaurants(res.data.user.favorites);
             })
             .catch(err => console.log(err))
     }, [])
@@ -28,10 +28,21 @@ const Favorites = (props) => {
             .catch(err => console.log(err))
     }
 
+    function pickRandom() {
+        let randomRestaurant = favoriteRestaurants[Math.floor(Math.random() * favoriteRestaurants.length)];
+        alert(randomRestaurant.name);
+        // make this look nicer when you choose a random restaurant
+    }
+
     return (
         <div className="col-md-10 mx-auto my-3">
             <Navbar />
-            <h1>Favorites</h1>
+            <h1 className="mb-3">Favorites</h1>
+            {
+                favoriteRestaurants.length > 0 ? 
+                <button onClick={pickRandom}>Pick a random restaurant!</button>
+                : ""
+            }
             {
                 favoriteRestaurants.map((restaurant) => {
                     return (

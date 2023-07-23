@@ -9,7 +9,7 @@ const RestaurantList = (props) => {
         axios.get("http://localhost:8000/api/users/favorites", { withCredentials: true })
             .then(res => {
                 console.log(res)
-                setFavoriteRestaurants(res.data.favorites);
+                setFavoriteRestaurants(res.data.user.favorites);
             })
             .catch(err => console.log(err))
     }, [])
@@ -23,9 +23,20 @@ const RestaurantList = (props) => {
             .catch(err => console.log(err))
     }
 
+    function pickRandom() {
+        let randomRestaurant = fetchedData[Math.floor(Math.random() * fetchedData.length)];
+        alert(randomRestaurant.name);
+        // make this look nicer when you choose a random restaurant
+    }
+
     return (
         <div>
-            <h1>Restaurants In Your Location:</h1>
+            <h1 className="mb-3">Restaurants In Your Location:</h1>
+            {
+                fetchedData.length > 0 ?
+                <button onClick={pickRandom}>Pick a random restaurant!</button>
+                : ""
+            }
             {
                 fetchedData.length > 0 ?
                 fetchedData.map((restaurant) => {

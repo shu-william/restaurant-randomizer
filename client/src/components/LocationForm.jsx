@@ -23,7 +23,7 @@ const LocationForm = (props) => {
             axios.get('http://localhost:8000/yelp_api/' + location)
                 .then(res => {
                     setFetchedData(res.data.businesses);
-                    console.log(fetchedData);
+                    // console.log(fetchedData);
                 })
         }
         else {
