@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LocationForm from '../components/LocationForm';
+import SearchForm from '../components/SearchForm';
 import RestaurantList from '../components/RestaurantList';
 import Navbar from '../components/Navbar';
 
@@ -11,7 +11,7 @@ const Home = (props) => {
     return (
         <div className="col-md-10 mx-auto my-3">
             <Navbar />
-            <LocationForm fetchedData={fetchedData} setFetchedData={setFetchedData} />
+            <SearchForm fetchedData={fetchedData} setFetchedData={setFetchedData} />
             <RestaurantList
                 fetchedData={fetchedData} setFetchedData={setFetchedData} 
                 favoriteRestaurants={favoriteRestaurants} setFavoriteRestaurants={setFavoriteRestaurants} 
