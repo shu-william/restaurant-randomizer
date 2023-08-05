@@ -8,4 +8,5 @@ A web application that draws from a third-party API to retrieve a list of restau
 - Make "pick a random restaurant" function prettier when executed
 - Check for existing users by email when registering
 - Make buttons change depending on logged-in state or if restaurants are in favorites list
+- Add pagination so users can scroll through more restaurants than the 20 displayed
 
