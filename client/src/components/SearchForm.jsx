@@ -4,7 +4,8 @@ import axios from 'axios';
 const SearchForm = (props) => {
 
     const [location, setLocation] = useState("");
-    const [cost, setCost] = useState(1);
+    const [cost, setCost] = useState("1");
+    const [cuisine, setCuisine] = useState(["tradamerican"]);
     const [errors, setErrors] = useState("");
 
     const {fetchedData, setFetchedData} = props;
@@ -19,9 +20,16 @@ const SearchForm = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        console.log(cuisine);
         setErrors("");
         if(formValidator()) {
-            axios.get('http://localhost:8000/yelp_api/' + location)
+            axios.get('http://localhost:8000/yelp_api', {
+                params: {
+                    location: location,
+                    cost: cost,
+                    cuisine: cuisine,
+                }
+            })
                 .then(res => {
                     setFetchedData(res.data.businesses);
                     // console.log(fetchedData);
@@ -51,6 +59,27 @@ const SearchForm = (props) => {
                         <label htmlFor="3">$$$</label>
                         <input type="radio" name="cost" id="4" value="4" onChange={(e) => setCost(e.target.value)} />
                         <label htmlFor="4">$$$$</label>
+                    </div>
+                    <div className="border">
+                        <h6>Cuisine:</h6>
+                        <label htmlFor="cuisine">Cuisine:</label>
+                        <select 
+                            multiple={true} name="cuisine" id="cuisine" value={cuisine} 
+                            onChange={(e) => {
+                                const options = [...e.target.selectedOptions];
+                                const values = options.map(option => option.value);
+                                setCuisine(values);
+                            }} >
+                            <option value="tradamerican">American</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="vietnamese">Vietnamese</option>
+                            <option value="korean">Korean</option>
+                            <option value="french">French</option>
+                            <option value="italian">Italian</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="mediterranean">Mediterranean</option>
+                        </select>
                     </div>
                 </div>
                 <input type="submit" value="Find Restaurants Near Me" className="btn btn-primary my-3"/>
