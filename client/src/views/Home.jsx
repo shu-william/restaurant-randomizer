@@ -9,7 +9,7 @@ const Home = (props) => {
     const [fetchedData, setFetchedData] = useState({});
 
     return (
-        <div className="col-md-10 mx-auto my-3">
+        <div className="col-md-10 mx-auto my-3 homeClass">
             <Navbar />
             <SearchForm fetchedData={fetchedData} setFetchedData={setFetchedData} />
             <RestaurantList
