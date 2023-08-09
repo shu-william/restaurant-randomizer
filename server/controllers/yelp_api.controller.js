@@ -4,9 +4,7 @@ require('dotenv').config();
 const API_KEY = process.env.API_KEY;
 
 module.exports.getRestaurantsByLocation = (req, res) => {
-    let categories = new URLSearchParams(req.query.cuisine.map(s => ['categories', s]))
-    categories = categories.toString().slice(11);
-    console.log(categories)
+    let categories = req.query.cuisine.join();
     const options = {
         headers: {
             accept: 'application/json',
@@ -17,7 +15,8 @@ module.exports.getRestaurantsByLocation = (req, res) => {
             price: req.query.cost,
             categories: categories,
             sort_by: 'best_match',
-            limit: 20
+            limit: 20,
+            offset: req.query.offset,
         }
     }
 
