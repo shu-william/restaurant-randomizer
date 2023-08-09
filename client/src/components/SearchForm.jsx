@@ -6,6 +6,7 @@ const SearchForm = (props) => {
     const [location, setLocation] = useState("");
     const [cost, setCost] = useState("1");
     const [cuisine, setCuisine] = useState(["tradamerican"]);
+    const [offset, setOffset] = useState(0);
     const [errors, setErrors] = useState("");
 
     const {fetchedData, setFetchedData} = props;
@@ -20,7 +21,7 @@ const SearchForm = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(cuisine);
+        setOffset(0);
         setErrors("");
         if(formValidator()) {
             axios.get('http://localhost:8000/yelp_api', {
@@ -28,6 +29,7 @@ const SearchForm = (props) => {
                     location: location,
                     cost: cost,
                     cuisine: cuisine,
+                    offset: offset.toString(),
                 }
             })
                 .then(res => {
@@ -39,6 +41,31 @@ const SearchForm = (props) => {
             setErrors("This field may not be blank.")
         }
     }
+
+    const nextResults = () => {
+      // next button not working as intended; it does retrieve new results but when it runs out the results don't display properly. 
+      // offset also starts at 0 on first click, not sure why
+      setOffset(offset + 21);
+      console.log(offset);
+      setErrors("");
+      if(formValidator()) {
+          axios.get('http://localhost:8000/yelp_api', {
+              params: {
+                  location: location,
+                  cost: cost,
+                  cuisine: cuisine,
+                  offset: offset.toString(),
+              }
+          })
+              .then(res => {
+                  setFetchedData(res.data.businesses);
+                  console.log(fetchedData);
+              })
+      }
+      else {
+          setErrors("This field may not be blank.")
+      }
+  }      
 
     return (
       <div>
@@ -125,6 +152,9 @@ const SearchForm = (props) => {
             className="btn btnStyle my-3"
           />
         </form>
+        <div>
+          <button onClick={nextResults}>Next</button>
+        </div>
       </div>
     );
 }
