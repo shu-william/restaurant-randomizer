@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const SearchForm = (props) => {
@@ -33,8 +33,8 @@ const SearchForm = (props) => {
                 }
             })
                 .then(res => {
-                    setFetchedData(res.data.businesses);
-                    // console.log(fetchedData);
+                    let newData = res.data.businesses;
+                    setFetchedData(newData);
                 })
         }
         else {
@@ -42,11 +42,10 @@ const SearchForm = (props) => {
         }
     }
 
-    const nextResults = () => {
+    function nextResults() {
       // next button not working as intended; it does retrieve new results but when it runs out the results don't display properly. 
       // offset also starts at 0 on first click, not sure why
       setOffset(offset + 21);
-      console.log(offset);
       setErrors("");
       if(formValidator()) {
           axios.get('http://localhost:8000/yelp_api', {
@@ -58,14 +57,26 @@ const SearchForm = (props) => {
               }
           })
               .then(res => {
-                  setFetchedData(res.data.businesses);
-                  console.log(fetchedData);
+                  let newData = res.data.businesses;
+                  setFetchedData(newData);
               })
       }
       else {
           setErrors("This field may not be blank.")
       }
-  }      
+  }
+
+  useEffect(() => {
+    console.log(fetchedData);
+  }, [fetchedData])
+
+  useEffect(() => {
+    console.log(offset);
+  }, [offset])
+
+  // Right now the error is that state is updating asynchronously so the API call is running 
+  // with the previous state of offset instead of the new state. I can work with useEffects or some other method to 
+  // ensure that the API call uses the updated state.
 
     return (
       <div>
