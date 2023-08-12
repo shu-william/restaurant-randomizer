@@ -31,7 +31,7 @@ const RestaurantList = (props) => {
 
     return (
         <div>
-            <h1 className="mb-3">Restaurants In Your Location:</h1>
+            <h1 className="mb-3 titleFont">Restaurants In Your Location:</h1>
             {
                 fetchedData.length > 0 ?
                 <button onClick={pickRandom}>Pick a random restaurant!</button>

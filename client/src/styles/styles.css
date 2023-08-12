@@ -1,6 +1,25 @@
+.titleFont{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.9em;
+}
+
 .navbarStyle{
     width: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.2em;
+    font-size: 1.4em;
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(99, 77, 53);
+    
+}
 
+.linkStyle:hover{
+    color: orange
+}
+
+.linkStyle:active{
+    transform: translateY(2px);
 }
 
 /* .homeClass{
@@ -10,16 +29,29 @@
 .formClass{
     display: flex;
     border-style:solid;
-    border-color: orange;
+    border-color: rgb(240, 201, 130);
     border-width: 10px;
+    border-radius: 17px;
     padding: 10px;
     flex-direction:column;
     justify-content: space-between;
-    background-color: rgb(255, 254, 249);
+    background-color: rgb(240, 201, 130);
 }
 
 .btnStyle{
     background-color:rgb(240, 156, 0);
     color: rgb(250, 243, 211);
-    border-radius: 8px;
+    border-radius: 12px;
+    padding: .8em;
+    border-style: none;
 }
+
+.btnStyle:hover{
+    opacity: 0.6;
+}
+
+.btnStyle:active{
+    transform: translateY(2px);
+}
+
+
