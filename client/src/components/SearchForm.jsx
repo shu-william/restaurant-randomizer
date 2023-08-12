@@ -65,7 +65,7 @@ const SearchForm = (props) => {
       else {
           setErrors("This field may not be blank.")
       }
-  }      
+  }
 
     return (
       <div>
