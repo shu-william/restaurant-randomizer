@@ -84,7 +84,7 @@ const SearchForm = (props) => {
         <form onSubmit={submitHandler} className="form-inline">
           <div className="formClass">
             <div className="form-group">
-              <label htmlFor="location">Please enter your location.</label>
+              <label htmlFor="location">Please enter your location:</label>
               <input
                 type="text"
                 name="location"
