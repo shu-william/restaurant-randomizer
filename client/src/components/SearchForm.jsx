@@ -43,8 +43,6 @@ const SearchForm = (props) => {
     }
 
     function nextResults() {
-      // next button not working as intended; it does retrieve new results but when it runs out the results don't display properly. 
-      // offset also starts at 0 on first click, not sure why
       setOffset(offset + 21);
       setErrors("");
       if(formValidator()) {
