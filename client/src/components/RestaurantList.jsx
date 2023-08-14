@@ -16,6 +16,14 @@ const RestaurantList = (props) => {
             .catch(err => console.log(err))
     }, [])
 
+    useEffect(() => {
+        console.log(fetchedData);
+    }, [fetchedData])
+
+    useEffect(() => {
+        console.log(offset);
+    }, [offset])
+
     function addFavorite(restaurant) {
         axios.patch("http://localhost:8000/api/users/favorites", {
             "$push": 
