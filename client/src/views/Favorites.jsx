@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import swal from 'sweetalert';
 
 const Favorites = (props) => {
 
@@ -30,7 +31,7 @@ const Favorites = (props) => {
 
     function pickRandom() {
         let randomRestaurant = favoriteRestaurants[Math.floor(Math.random() * favoriteRestaurants.length)];
-        alert(randomRestaurant.name);
+        swal(randomRestaurant.name);
         // make this look nicer when you choose a random restaurant
     }
 

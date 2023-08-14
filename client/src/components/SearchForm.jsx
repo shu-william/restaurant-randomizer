@@ -3,13 +3,9 @@ import axios from 'axios';
 
 const SearchForm = (props) => {
 
-    const [location, setLocation] = useState("");
-    const [cost, setCost] = useState("1");
-    const [cuisine, setCuisine] = useState(["tradamerican"]);
-    const [offset, setOffset] = useState(0);
     const [errors, setErrors] = useState("");
 
-    const {fetchedData, setFetchedData} = props;
+    const {fetchedData, setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, offset, setOffset} = props;
 
     const formValidator = () => {
         let isValid = true;
@@ -41,28 +37,6 @@ const SearchForm = (props) => {
             setErrors("This field may not be blank.")
         }
     }
-
-    function nextResults() {
-      setOffset(offset + 21);
-      setErrors("");
-      if(formValidator()) {
-          axios.get('http://localhost:8000/yelp_api', {
-              params: {
-                  location: location,
-                  cost: cost,
-                  cuisine: cuisine,
-                  offset: offset.toString(),
-              }
-          })
-              .then(res => {
-                  let newData = res.data.businesses;
-                  setFetchedData(newData);
-              })
-      }
-      else {
-          setErrors("This field may not be blank.")
-      }
-  }
 
   useEffect(() => {
     console.log(fetchedData);
@@ -101,6 +75,7 @@ const SearchForm = (props) => {
                   id="1"
                   value="1"
                   onChange={(e) => setCost(e.target.value)}
+                  className="mx-1"
                 />
                 <label htmlFor="1">$</label>
                 <input
@@ -109,6 +84,7 @@ const SearchForm = (props) => {
                   id="2"
                   value="2"
                   onChange={(e) => setCost(e.target.value)}
+                  className="mx-1"
                 />
                 <label htmlFor="2">$$</label>
                 <input
@@ -117,6 +93,7 @@ const SearchForm = (props) => {
                   id="3"
                   value="3"
                   onChange={(e) => setCost(e.target.value)}
+                  className="mx-1"
                 />
                 <label htmlFor="3">$$$</label>
                 <input
@@ -125,6 +102,7 @@ const SearchForm = (props) => {
                   id="4"
                   value="4"
                   onChange={(e) => setCost(e.target.value)}
+                  className="mx-1"
                 />
                 <label htmlFor="4">$$$$</label>
               </div>
@@ -155,16 +133,12 @@ const SearchForm = (props) => {
             </div>
           </div>
 
-
           <input
             type="submit"
             value="Find Restaurants Near Me"
             className="btnStyle mt-3 mb-5"
           />
         </form>
-        <div>
-          <button onClick={nextResults}>Next</button>
-        </div>
       </div>
     );
 }

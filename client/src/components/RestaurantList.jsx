@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import swal from 'sweetalert';
+import Pagination from './Pagination';
 
 const RestaurantList = (props) => {
 
-    const {fetchedData, setFetchedData, favoriteRestaurants, setFavoriteRestaurants} = props;
+    const {fetchedData, setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, offset, setOffset, setFavoriteRestaurants} = props;
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/favorites", { withCredentials: true })
@@ -51,6 +52,17 @@ const RestaurantList = (props) => {
                         </div>
                     )
                 })
+                : ""
+            }
+            {
+                fetchedData.length > 0 ?
+                <Pagination 
+                    fetchedData={fetchedData} setFetchedData={setFetchedData}
+                    location={location} setLocation={setLocation}
+                    cost={cost} setCost={setCost}
+                    cuisine={cuisine} setCuisine={setCuisine}
+                    offset={offset} setOffset={setOffset}
+                />
                 : ""
             }
         </div>
