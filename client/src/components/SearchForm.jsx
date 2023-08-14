@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const SearchForm = (props) => {
 
     const [errors, setErrors] = useState("");
 
-    const {fetchedData, setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, offset, setOffset} = props;
+    const {setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, offset, setOffset} = props;
 
     const formValidator = () => {
         let isValid = true;
@@ -37,18 +37,6 @@ const SearchForm = (props) => {
             setErrors("This field may not be blank.")
         }
     }
-
-  useEffect(() => {
-    console.log(fetchedData);
-  }, [fetchedData])
-
-  useEffect(() => {
-    console.log(offset);
-  }, [offset])
-
-  // Right now the error is that state is updating asynchronously so the API call is running 
-  // with the previous state of offset instead of the new state. I can work with useEffects or some other method to 
-  // ensure that the API call uses the updated state.
 
     return (
       <div>
