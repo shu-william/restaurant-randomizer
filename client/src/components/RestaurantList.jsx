@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
+import swal from 'sweetalert';
 
 const RestaurantList = (props) => {
 
@@ -25,7 +26,7 @@ const RestaurantList = (props) => {
 
     function pickRandom() {
         let randomRestaurant = fetchedData[Math.floor(Math.random() * fetchedData.length)];
-        alert(randomRestaurant.name);
+        swal(randomRestaurant.name);
         // make this look nicer when you choose a random restaurant
     }
 
