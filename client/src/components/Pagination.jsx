@@ -5,38 +5,37 @@ const Pagination = (props) => {
 
     const {fetchedData, setFetchedData, location, cost, cuisine, offset, setOffset} = props;
 
-    // I think axios calls are still being made before offset updates correctly.
-    // Check to see if the params are correct each time a button is pressed under different circumstances.
+    // Could be a temporary workaround, but right now I am updating offset in the
+    // params as well as in state because setState is asynchronous and lags behind the API call.
+    // Could look for a better fix if bugs arise.
 
     function nextResults() {
-        setOffset(offset + 20);
         axios.get('http://localhost:8000/yelp_api', {
             params: {
                 location: location,
                 cost: cost,
                 cuisine: cuisine,
-                offset: offset.toString(),
+                offset: offset + 20,
             }
         })
             .then(res => {
-                let newData = res.data.businesses;
-                setFetchedData(newData);
+                setOffset(offset + 20);
+                setFetchedData(res.data.businesses);
             })
     }
 
     function prevResults() {
-        setOffset(offset - 20);
         axios.get('http://localhost:8000/yelp_api', {
             params: {
                 location: location,
                 cost: cost,
                 cuisine: cuisine,
-                offset: offset.toString(),
+                offset: offset - 20,
             }
         })
             .then(res => {
-                let newData = res.data.businesses;
-                setFetchedData(newData);
+                setOffset(offset - 20);
+                setFetchedData(res.data.businesses);
             })
     }
 
