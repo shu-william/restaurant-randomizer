@@ -5,7 +5,7 @@ const SearchForm = (props) => {
 
     const [errors, setErrors] = useState("");
 
-    const {setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, offset, setOffset} = props;
+    const {setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, setOffset} = props;
 
     const formValidator = () => {
         let isValid = true;
@@ -17,7 +17,6 @@ const SearchForm = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        setOffset(0);
         setErrors("");
         if(formValidator()) {
             axios.get('http://localhost:8000/yelp_api', {
@@ -25,12 +24,12 @@ const SearchForm = (props) => {
                     location: location,
                     cost: cost,
                     cuisine: cuisine,
-                    offset: offset.toString(),
+                    offset: 0,
                 }
             })
                 .then(res => {
-                    let newData = res.data.businesses;
-                    setFetchedData(newData);
+                  setOffset(0);
+                  setFetchedData(res.data.businesses);
                 })
         }
         else {
