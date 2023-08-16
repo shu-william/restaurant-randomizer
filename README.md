@@ -4,6 +4,6 @@ A web application that draws from a third-party API to retrieve a list of restau
 ## Product Backlog
 - Improve front-end design and UI
 - Incorporate Yelp Developer assets with links to restaurants on Yelp
-- Check for existing users by email when registering
 - Make buttons change depending on logged-in state or if restaurants are in favorites list
+- Add more categories to filter restaurants by. Consider adding filters in favorites list
 

@@ -10,7 +10,7 @@ const RestaurantList = (props) => {
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/favorites", { withCredentials: true })
             .then(res => {
-                console.log(res)
+                console.log(res);
                 setFavoriteRestaurants(res.data.user.favorites);
             })
             .catch(err => console.log(err))
@@ -60,19 +60,15 @@ const RestaurantList = (props) => {
                         </div>
                     )
                 })
-                : ""
+                : "There are no restaurants that match the given criteria." // Consider getting this to show only after searching, as opposed to on page load.
             }
-            {
-                fetchedData.length > 0 ?
-                <Pagination 
-                    fetchedData={fetchedData} setFetchedData={setFetchedData}
-                    location={location} setLocation={setLocation}
-                    cost={cost} setCost={setCost}
-                    cuisine={cuisine} setCuisine={setCuisine}
-                    offset={offset} setOffset={setOffset}
-                />
-                : ""
-            }
+            <Pagination 
+                fetchedData={fetchedData} setFetchedData={setFetchedData}
+                location={location} setLocation={setLocation}
+                cost={cost} setCost={setCost}
+                cuisine={cuisine} setCuisine={setCuisine}
+                offset={offset} setOffset={setOffset}
+            />
         </div>
     )
 }
