@@ -58,6 +58,9 @@
     transform: translateY(2px);
 }
 
+.ratingStyle{
+    width: 8em;
+}
 
 /* Favorites Page */
 
