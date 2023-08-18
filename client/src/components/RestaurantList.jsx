@@ -5,6 +5,13 @@ import Pagination from './Pagination';
 import zerostar from '../images/regular/zerostar.png';
 import onestar from '../images/regular/onestar.png';
 import onehalfstar from '../images/regular/onehalfstar.png';
+import twostar from '../images/regular/twostar.png';
+import twohalfstar from '../images/regular/twohalfstar.png';
+import threestar from '../images/regular/threestar.png';
+import threehalfstar from '../images/regular/threehalfstar.png';
+import fourstar from '../images/regular/fourstar.png';
+import fourhalfstar from '../images/regular/fourhalfstar.png';
+import fivestar from '../images/regular/fivestar.png';
 
 const RestaurantList = (props) => {
 
@@ -13,7 +20,43 @@ const RestaurantList = (props) => {
     const ratingImages = {
         0: {
             src: zerostar,
-            alt: 'zerostar'
+            alt: '0 stars'
+        },
+        1: {
+            src: onestar,
+            alt: '1 star'
+        },
+        1.5: {
+            src: onehalfstar,
+            alt: '1.5 stars'
+        },
+        2: {
+            src: twostar,
+            alt: '2 stars'
+        },
+        2.5: {
+            src: twohalfstar,
+            alt: '2.5 stars'
+        },
+        3: {
+            src: threestar,
+            alt: '3 stars'
+        },
+        3.5: {
+            src: threehalfstar,
+            alt: '3.5 stars'
+        },
+        4: {
+            src: fourstar,
+            alt: '4 stars'
+        },
+        4.5: {
+            src: fourhalfstar,
+            alt: '4.5 stars'
+        },
+        5: {
+            src: fivestar,
+            alt: '5 stars'
         }
     }
 
@@ -64,8 +107,7 @@ const RestaurantList = (props) => {
                         <div key={restaurant.id} className="my-3">
                             <h3>{restaurant.name}</h3>
                             <p>{restaurant.location.address1}, {restaurant.location.city} {restaurant.location.zip_code}</p>
-                            <p>{restaurant.rating} Stars out of {restaurant.review_count} reviews</p>
-                            <img src={ratingImages[0].src} alt={ratingImages[0].alt} />
+                            <p><img src={ratingImages[restaurant.rating].src} alt={ratingImages[restaurant.rating].alt} className="ratingStyle"/> out of {restaurant.review_count} reviews</p>
                             {/* get button to show only when logged in */}
                             <button onClick={(e) => addFavorite(restaurant)} className="btn btn-info">Add to favorites</button> 
                         </div>
