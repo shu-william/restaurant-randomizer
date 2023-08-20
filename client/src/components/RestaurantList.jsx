@@ -12,6 +12,7 @@ import threehalfstar from '../images/regular/threehalfstar.png';
 import fourstar from '../images/regular/fourstar.png';
 import fourhalfstar from '../images/regular/fourhalfstar.png';
 import fivestar from '../images/regular/fivestar.png';
+import yelp_logo from '../images/Logo/Light bg/RGB/yelp_logo.png';
 
 const RestaurantList = (props) => {
 
@@ -106,7 +107,7 @@ const RestaurantList = (props) => {
                     return (
                         <div key={restaurant.id} className="my-3">
                             <h3>{restaurant.name}</h3>
-                            <p>{restaurant.location.address1}, {restaurant.location.city} {restaurant.location.zip_code}</p>
+                            <p>{restaurant.location.address1}, {restaurant.location.city} {restaurant.location.zip_code} <a href={restaurant.url} target="_blank" rel="noreferrer noopener"><img src={yelp_logo} alt="yelp_logo" className="logoStyle"/></a></p>
                             <p><img src={ratingImages[restaurant.rating].src} alt={ratingImages[restaurant.rating].alt} className="ratingStyle"/> out of {restaurant.review_count} reviews</p>
                             {/* get button to show only when logged in */}
                             <button onClick={(e) => addFavorite(restaurant)} className="btn btn-info">Add to favorites</button> 

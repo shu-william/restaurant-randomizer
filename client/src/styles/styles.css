@@ -62,6 +62,12 @@
     width: 8em;
 }
 
+.logoStyle{
+    width: 4em;
+    vertical-align: bottom;
+    margin-left: 2px;
+}
+
 /* Favorites Page */
 
 .favHeader{
