@@ -1,6 +1,7 @@
 .titleFont{
     font-family: 'Roboto Mono', monospace;
     font-size: 1.9em;
+    color:rgb(150, 133, 115)
 }
 
 .navbarStyle{
@@ -107,6 +108,7 @@
     color: rgb(255, 115, 0);
     background-color: rgb(255, 228, 179);
     border: none;
+    border-radius: .6em;
     padding: .4em;
 }
 
