@@ -98,3 +98,18 @@
     text-align: center;
     color: #bb9a8e;
 }
+
+/* "Pick A Random Restaurant" Button */
+
+.randomButton {
+    font-family: 'Roboto Mono', monospace;
+    font-size: .8em;
+    color: rgb(255, 115, 0);
+    background-color: rgb(255, 228, 179);
+    border: none;
+    padding: .4em;
+}
+
+.randomButton:hover {
+    opacity: 0.6;
+}

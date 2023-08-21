@@ -90,7 +90,6 @@ const RestaurantList = (props) => {
     function pickRandom() {
         let randomRestaurant = fetchedData[Math.floor(Math.random() * fetchedData.length)];
         swal(randomRestaurant.name);
-        // make this look nicer when you choose a random restaurant
     }
 
     return (
@@ -98,7 +97,7 @@ const RestaurantList = (props) => {
             <h1 className="mb-3 titleFont">Restaurants In Your Location:</h1>
             {
                 fetchedData.length > 0 ?
-                <button onClick={pickRandom}>Pick a random restaurant!</button>
+                <button className="randomButton" onClick={pickRandom}>Pick a random restaurant!</button>
                 : ""
             }
             {
