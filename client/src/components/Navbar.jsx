@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import "../styles/styles.css"
 
-const Navbar = () => {
+const Navbar = ({loggedIn, setLoggedIn}) => {
 
     const navigate = useNavigate();
 
@@ -12,6 +12,7 @@ const Navbar = () => {
         axios.post("http://localhost:8000/api/users/logout", {}, { withCredentials: true })
             .then(res => {
                 console.log(res);
+                setLoggedIn(false);
                 navigate("/login");
             })
             .catch(err => console.log(err))
@@ -22,7 +23,11 @@ const Navbar = () => {
             <nav className="navbar navbarStyle">
                 <Link to={"/home"} className="nav-link mx-3 linkStyle">Home</Link>
                 <Link to={"/favorites"} className="nav-link mx-3 linkStyle">Favorites</Link>
-                <Link to={"/"} onClick={(e) => logoutUser(e)} className="nav-link mx-3 linkStyle">Logout</Link>
+                {
+                    loggedIn ?
+                    <Link to={"/"} onClick={(e) => logoutUser(e)} className="nav-link mx-3 linkStyle">Logout</Link> :
+                    <Link to={"/"} onClick={(e) => logoutUser(e)} className="nav-link mx-3 linkStyle">Login</Link>
+                }
             </nav>
         </div>
     )

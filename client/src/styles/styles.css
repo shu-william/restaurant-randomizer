@@ -79,6 +79,7 @@
 
 
 /* Alert */
+/* I switched to sweetalert2 so I could use React with it but now the CSS isn't working properly, will come back to this */
 
 .swal-overlay {
     background-color: rgba(243, 202, 127, 0.45);

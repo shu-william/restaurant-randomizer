@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-const LoginForm = () => {
+const LoginForm = ({ loggedIn, setLoggedIn }) => {
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -22,18 +22,20 @@ const LoginForm = () => {
             confirmPassword 
         }, { withCredentials: true })
             .then(res => {
-                console.log(res);
+                // console.log(res);
+                setLoggedIn(true);
                 navigate("/home");
             })
             .catch(err => {
+                setLoggedIn(false);
                 if(err.response.data.code === 11000) {
-                    let keyName = Object.keys(err.response.data.keyValue)[0]
-                    setErrors([`The ${keyName} provided already exists.`])
+                    let keyName = Object.keys(err.response.data.keyValue)[0];
+                    setErrors([`The ${keyName} provided already exists.`]);
                 } else {
                     const errorResponse = err.response.data.errors;
                     const errorArray = [];
                     for (const key of Object.keys(errorResponse)) {
-                        errorArray.push(errorResponse[key].message)
+                        errorArray.push(errorResponse[key].message);
                     }
                     setErrors(errorArray);
                 }
@@ -47,11 +49,13 @@ const LoginForm = () => {
             password
         }, { withCredentials: true })
             .then(res => {
-                console.log(res);
+                // console.log(res);
+                setLoggedIn(true);
                 navigate("/home");
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err);
+                setLoggedIn(false);
                 setLoginErrors(err.response.data);
             })
     }
