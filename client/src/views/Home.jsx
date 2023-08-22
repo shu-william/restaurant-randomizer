@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 
 const Home = (props) => {
 
-    const {favoriteRestaurants, setFavoriteRestaurants} = props;
+    const {favoriteRestaurants, setFavoriteRestaurants, loggedIn, setLoggedIn} = props;
     const [fetchedData, setFetchedData] = useState({});
     const [location, setLocation] = useState("");
     const [cost, setCost] = useState("1");
@@ -14,7 +14,9 @@ const Home = (props) => {
 
     return (
         <div className="col-md-10 mx-auto my-3 homeClass">
-            <Navbar />
+            <Navbar 
+                loggedIn={loggedIn} setLoggedIn={setLoggedIn}
+            />
             <SearchForm 
                 fetchedData={fetchedData} setFetchedData={setFetchedData}
                 location={location} setLocation={setLocation}
@@ -28,7 +30,8 @@ const Home = (props) => {
                 cost={cost} setCost={setCost}
                 cuisine={cuisine} setCuisine={setCuisine}
                 offset={offset} setOffset={setOffset}
-                favoriteRestaurants={favoriteRestaurants} setFavoriteRestaurants={setFavoriteRestaurants} 
+                favoriteRestaurants={favoriteRestaurants} setFavoriteRestaurants={setFavoriteRestaurants}
+                loggedIn={loggedIn} setLoggedIn={setLoggedIn}
             />
         </div>
     )

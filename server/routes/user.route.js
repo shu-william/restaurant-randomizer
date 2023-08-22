@@ -13,7 +13,7 @@ module.exports = app => {
     app.post('/api/users/register', UserController.createUser);
     app.post('/api/users/login', UserController.loginUser);
     app.post('/api/users/logout', UserController.logout);
-    app.get('/api/users/favorites', authenticate, getIdFromCookie, UserController.findOneUser);
+    app.get('/api/users/currentuser', authenticate, getIdFromCookie, UserController.findOneUser);
     app.patch('/api/users/favorites', authenticate, getIdFromCookie, FavoritesController.addToFavorites);
 
 }

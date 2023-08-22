@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import Pagination from './Pagination';
 import zerostar from '../images/regular/zerostar.png';
 import onestar from '../images/regular/onestar.png';
@@ -14,9 +15,11 @@ import fourhalfstar from '../images/regular/fourhalfstar.png';
 import fivestar from '../images/regular/fivestar.png';
 import yelp_logo from '../images/Logo/Light bg/RGB/yelp_logo.png';
 
+const MySwal = withReactContent(Swal);
+
 const RestaurantList = (props) => {
 
-    const {fetchedData, setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, offset, setOffset, setFavoriteRestaurants} = props;
+    const {fetchedData, setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, offset, setOffset, setFavoriteRestaurants, loggedIn, setLoggedIn} = props;
 
     const ratingImages = {
         0: {
@@ -62,17 +65,21 @@ const RestaurantList = (props) => {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/users/favorites", { withCredentials: true })
+        axios.get("http://localhost:8000/api/users/currentuser", { withCredentials:true })
             .then(res => {
-                console.log(res);
+                // console.log(res);
+                setLoggedIn(true);
                 setFavoriteRestaurants(res.data.user.favorites);
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                // console.log(err);
+                setLoggedIn(false);
+            })
     }, [])
 
-    useEffect(() => {
-        console.log(fetchedData);
-    }, [fetchedData])
+    // useEffect(() => {
+    //     console.log(fetchedData);
+    // }, [fetchedData])
 
     // useEffect(() => {
     //     console.log(offset);
@@ -89,7 +96,12 @@ const RestaurantList = (props) => {
 
     function pickRandom() {
         let randomRestaurant = fetchedData[Math.floor(Math.random() * fetchedData.length)];
-        swal(randomRestaurant.name);
+        MySwal.fire(
+            <div>
+                <p>{randomRestaurant.name}</p>
+                <p><a href={randomRestaurant.url} target="_blank" rel="noreferrer noopener"><img src={yelp_logo} alt="yelp_logo" className="logoStyle"/></a></p>
+            </div>
+        );
     }
 
     return (
@@ -108,8 +120,11 @@ const RestaurantList = (props) => {
                             <h3>{restaurant.name}</h3>
                             <p>{restaurant.location.address1}, {restaurant.location.city} {restaurant.location.zip_code} <a href={restaurant.url} target="_blank" rel="noreferrer noopener"><img src={yelp_logo} alt="yelp_logo" className="logoStyle"/></a></p>
                             <p><img src={ratingImages[restaurant.rating].src} alt={ratingImages[restaurant.rating].alt} className="ratingStyle"/> out of {restaurant.review_count} reviews</p>
-                            {/* get button to show only when logged in */}
-                            <button onClick={(e) => addFavorite(restaurant)} className="btn btn-info">Add to favorites</button> 
+                            {
+                                loggedIn ?
+                                <button onClick={(e) => addFavorite(restaurant)} className="btn btn-info">Add to favorites</button>
+                                : ""
+                            }                            
                         </div>
                     )
                 })
