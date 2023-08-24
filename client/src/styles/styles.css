@@ -77,30 +77,6 @@
     color: rgb(255, 151, 82);
 }
 
-
-/* Alert */
-/* I switched to sweetalert2 so I could use React with it but now the CSS isn't working properly, will come back to this */
-
-.swal-overlay {
-    background-color: rgba(243, 202, 127, 0.45);
-}
-
-.swal-button {
-    background-color: rgb(255, 128, 123);
-}
-
-.swal-text {
-    font-size: large;
-    font-family: 'Roboto Mono', monospace;
-    padding: 17px;
-    border: 1em solid #fff8be;
-    border-radius: 3em;
-    display: block;
-    margin: 22px;
-    text-align: center;
-    color: #bb9a8e;
-}
-
 /* "Pick A Random Restaurant" Button */
 
 .randomButton {
