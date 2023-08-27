@@ -14,7 +14,7 @@ module.exports.findOneUser = (req, res) => {
         .catch(err => res.json({ message: "Something went wrong retrieving user information.", error: err }));
 }
 
-module.exports.createUser = (req, res) => { // add functionality to check for existing users
+module.exports.createUser = (req, res) => {
     User.create(req.body)
         .then(user => {
             const userToken = jwt.sign({
