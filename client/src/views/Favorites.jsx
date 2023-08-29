@@ -92,12 +92,24 @@ const Favorites = (props) => {
 
     function pickRandom() {
         let randomRestaurant = favoriteRestaurants[Math.floor(Math.random() * favoriteRestaurants.length)];
-        MySwal.fire(
-            <div>
-                <p>{randomRestaurant.name}</p>
-                <p><a href={randomRestaurant.url} target="_blank" rel="noreferrer noopener"><img src={yelp_logo} alt="yelp_logo" className="logoStyle"/></a></p>
-            </div>
-        );
+        MySwal.fire({
+            title: (
+                <div>
+                    <p>{randomRestaurant.name}</p>
+                    <p>
+                        <a
+                            href={randomRestaurant.url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
+                            <img src={yelp_logo} alt="yelp_logo" className="logoStyle" />
+                        </a>
+                    </p>
+                </div>
+                ),
+            color: "orange",
+            background: "white",
+        });
     }
 
     return (
@@ -105,14 +117,11 @@ const Favorites = (props) => {
             <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <h1 className="mb-3 favHeader">Favorites</h1>
             {
-                loggedIn ?
-                "" :
-                "Please log in to view favorites."
-            }
-            {
-                favoriteRestaurants.length > 0 ? 
-                <button className="randomButton" onClick={pickRandom}>Pick a random restaurant!</button>
-                : "Please add restaurants to your favorites."
+                loggedIn 
+                ?   favoriteRestaurants.length > 0 
+                    ? <button className="randomButton" onClick={pickRandom}>Pick a random restaurant!</button>
+                    : "Please add restaurants to your favorites."
+                : "Please log in to view favorites."
             }
             {
                 favoriteRestaurants.map((restaurant) => {
