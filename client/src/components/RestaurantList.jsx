@@ -29,6 +29,7 @@ const RestaurantList = (props) => {
     setCuisine,
     offset,
     setOffset,
+    favoriteRestaurants,
     setFavoriteRestaurants,
     loggedIn,
     setLoggedIn,
@@ -110,7 +111,9 @@ const RestaurantList = (props) => {
         },
         { withCredentials: true }
       )
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        })
       .catch((err) => console.log(err));
   }
 
@@ -176,7 +179,8 @@ const RestaurantList = (props) => {
                     />{" "}
                     out of {restaurant.review_count} reviews
                   </p>
-                  {loggedIn ? (
+                  {
+                  loggedIn ? (
                     <button
                       onClick={(e) => addFavorite(restaurant)}
                       className="btn btn-info"
@@ -185,7 +189,8 @@ const RestaurantList = (props) => {
                     </button>
                   ) : (
                     ""
-                  )}
+                  )
+                  }
                 </div>
               );
             })
