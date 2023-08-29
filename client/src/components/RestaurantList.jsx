@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Pagination from "./Pagination";
@@ -34,6 +34,8 @@ const RestaurantList = (props) => {
     loggedIn,
     setLoggedIn,
   } = props;
+
+  const favoriteIDs = useRef([]);
 
   const ratingImages = {
     0: {
@@ -94,6 +96,14 @@ const RestaurantList = (props) => {
       });
   }, []);
 
+  useEffect(() => {
+    let favoriteIDsTemp = [];
+    for (let i = 0; i < favoriteRestaurants.length; i++) {
+      favoriteIDsTemp.push(favoriteRestaurants[i].id)
+    }
+    favoriteIDs.current = favoriteIDsTemp;
+  }, [favoriteRestaurants])
+
   // useEffect(() => {
   //     console.log(fetchedData);
   // }, [fetchedData])
@@ -103,6 +113,10 @@ const RestaurantList = (props) => {
   // }, [offset])
 
   function addFavorite(restaurant) {
+    let elem = document.getElementById(restaurant.id)
+    if(elem.innerHTML === "Added to favorites!"){
+      return;
+    }
     axios
       .patch(
         "http://localhost:8000/api/users/favorites",
@@ -113,6 +127,8 @@ const RestaurantList = (props) => {
       )
       .then((res) => {
         console.log(res);
+        elem.innerHTML = "Added to favorites!"
+        setFavoriteRestaurants([...favoriteRestaurants, restaurant])
         })
       .catch((err) => console.log(err));
   }
@@ -180,16 +196,27 @@ const RestaurantList = (props) => {
                     out of {restaurant.review_count} reviews
                   </p>
                   {
-                  loggedIn ? (
+                  loggedIn 
+                  ? favoriteIDs.current.includes(restaurant.id)
+                    ? (
                     <button
                       onClick={(e) => addFavorite(restaurant)}
                       className="btn btn-info"
+                      id={restaurant.id}
+                    >
+                      Added to favorites!
+                    </button>
+                    )
+                  : (
+                    <button
+                      onClick={(e) => addFavorite(restaurant)}
+                      className="btn btn-info"
+                      id={restaurant.id}
                     >
                       Add to favorites
                     </button>
-                  ) : (
-                    ""
-                  )
+                    )
+                  : ""
                   }
                 </div>
               );
