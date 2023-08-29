@@ -112,7 +112,7 @@ const Favorites = (props) => {
             {
                 favoriteRestaurants.length > 0 ? 
                 <button className="randomButton" onClick={pickRandom}>Pick a random restaurant!</button>
-                : ""
+                : "Please add restaurants to your favorites."
             }
             {
                 favoriteRestaurants.map((restaurant) => {
