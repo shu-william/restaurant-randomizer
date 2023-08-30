@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import Navbar from "./Navbar";
 
 const LoginForm = ({ loggedIn, setLoggedIn }) => {
 
@@ -62,6 +63,7 @@ const LoginForm = ({ loggedIn, setLoggedIn }) => {
 
     return (
         <div>
+            <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <div className="col-md-6 mx-auto">
                 <h2 className="my-3">Register</h2>
                 <Form onSubmit={registerHandler}> 
