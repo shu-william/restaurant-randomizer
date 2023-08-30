@@ -13,11 +13,12 @@ const Home = (props) => {
     const [offset, setOffset] = useState(0);
 
     return (
-        <div className="col-md-10 mx-auto my-3 homeClass">
+        <div className="col-md-6 mx-auto my-3 homeClass">
             <Navbar 
                 loggedIn={loggedIn} setLoggedIn={setLoggedIn}
             />
-            <SearchForm 
+            <div className="d-flex justify-content-around">
+            <SearchForm
                 fetchedData={fetchedData} setFetchedData={setFetchedData}
                 location={location} setLocation={setLocation}
                 cost={cost} setCost={setCost}
@@ -33,6 +34,7 @@ const Home = (props) => {
                 favoriteRestaurants={favoriteRestaurants} setFavoriteRestaurants={setFavoriteRestaurants}
                 loggedIn={loggedIn} setLoggedIn={setLoggedIn}
             />
+            </div>
         </div>
     )
 }

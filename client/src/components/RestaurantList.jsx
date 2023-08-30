@@ -163,9 +163,8 @@ const RestaurantList = (props) => {
         <button className="randomButton" onClick={pickRandom}>
           Pick a random restaurant!
         </button>
-      ) : (
-        ""
-      )}
+      ) : ""
+      }
       {
         fetchedData.length > 0
           ? fetchedData.map((restaurant) => {

@@ -39,10 +39,10 @@ const SearchForm = (props) => {
 
     return (
       <div>
-        {errors ? <p className="text-danger">{errors}</p> : ""}
         <form onSubmit={submitHandler} className="form-inline">
           <div className="formClass">
             <div className="form-group">
+              {errors ? <p className="text-danger">{errors}</p> : ""}
               <label htmlFor="location">Please enter your location:</label>
               <input
                 type="text"
