@@ -220,7 +220,7 @@ const RestaurantList = (props) => {
                 </div>
               );
             })
-          : "There are no restaurants that match the given criteria." // Consider getting this to show only after searching, as opposed to on page load.
+          : <p>There are no restaurants that match the given criteria.</p> // Consider getting this to show only after searching, as opposed to on page load.
       }
       <Pagination
         fetchedData={fetchedData}

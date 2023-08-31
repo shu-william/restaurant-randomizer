@@ -41,6 +41,17 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+.filterStyle{
+    position: sticky;
+    color: aliceblue
+}
+
+select {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
 .btnStyle{
     background-color:rgb(255, 178, 115);
     color: rgb(250, 243, 211);
