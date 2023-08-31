@@ -157,7 +157,7 @@ const RestaurantList = (props) => {
   }
 
   return (
-    <div>
+    <div className="resFilter">
       <h1 className="mb-3 titleFont">Restaurants In Your Location:</h1>
       {fetchedData.length > 0 ? (
         <button className="randomButton" onClick={pickRandom}>
