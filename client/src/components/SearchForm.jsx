@@ -38,7 +38,7 @@ const SearchForm = (props) => {
     }
 
     return (
-      <div>
+      <div className="filterStyle">
         <form onSubmit={submitHandler}>
           <div className="formClass">
             <div className="form-group">

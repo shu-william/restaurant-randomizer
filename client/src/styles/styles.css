@@ -34,6 +34,8 @@
     border-width: .4em;
     border-radius: 2em;
     padding: 1.2em;
+    position: sticky;
+    margin-top: 5em;
     flex-direction:column;
     justify-content: space-between;
     background-color: rgb(255, 228, 179);
@@ -43,8 +45,26 @@
 
 .filterStyle{
     position: sticky;
-    color: aliceblue
+    top: 100px;
+    justify-content: flex-start;
+    color: aliceblue;
 }
+
+.navFilterStyle{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: rgb(255, 252, 250);
+}
+
+.resFilter{
+    margin-top: 5em;
+}
+
+.marginL{
+    margin-left: 4em;
+}
+
 
 select {
     width: 100%;

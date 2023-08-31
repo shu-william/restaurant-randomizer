@@ -18,18 +18,35 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
     }
 
     return (
-        <div>
-            <nav className="navbar navbarStyle">
-                <Link to={"/home"} className="nav-link mx-3 linkStyle">Home</Link>
-                <Link to={"/favorites"} className="nav-link mx-3 linkStyle">Favorites</Link>
-                {
-                    loggedIn ?
-                    <Link to={"/"} onClick={(e) => logoutUser(e)} className="nav-link mx-3 linkStyle">Logout</Link> :
-                    <Link to={"/"} onClick={(e) => logoutUser(e)} className="nav-link mx-3 linkStyle">Login</Link>
-                }
-            </nav>
-        </div>
-    )
+        
+      <header className="navFilterStyle">
+          <nav className="navbar navbarStyle">
+            <Link to={"/home"} className="nav-link mx-3 linkStyle">
+              Home
+            </Link>
+            <Link to={"/favorites"} className="nav-link mx-3 linkStyle">
+              Favorites
+            </Link>
+            {loggedIn ? (
+              <Link
+                to={"/"}
+                onClick={(e) => logoutUser(e)}
+                className="nav-link mx-3 linkStyle"
+              >
+                Logout
+              </Link>
+            ) : (
+              <Link
+                to={"/"}
+                onClick={(e) => logoutUser(e)}
+                className="nav-link mx-3 linkStyle"
+              >
+                Login
+              </Link>
+            )}
+          </nav>
+      </header>
+    );
 }
 
 export default Navbar;
