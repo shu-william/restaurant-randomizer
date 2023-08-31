@@ -39,7 +39,7 @@ const SearchForm = (props) => {
 
     return (
       <div>
-        <form onSubmit={submitHandler} className="form-inline">
+        <form onSubmit={submitHandler}>
           <div className="formClass">
             <div className="form-group">
               {errors ? <p className="text-danger">{errors}</p> : ""}
@@ -99,6 +99,7 @@ const SearchForm = (props) => {
                   multiple={true}
                   name="cuisine"
                   id="cuisine"
+                  size="5"
                   value={cuisine}
                   onChange={(e) => {
                     const options = [...e.target.selectedOptions];
@@ -111,10 +112,19 @@ const SearchForm = (props) => {
                   <option value="japanese">Japanese</option>
                   <option value="vietnamese">Vietnamese</option>
                   <option value="korean">Korean</option>
+                  <option value="thai">Thai</option>
+                  <option value="filipino">Filipino</option>
                   <option value="french">French</option>
+                  <option value="german">German</option>
                   <option value="italian">Italian</option>
                   <option value="mexican">Mexican</option>
                   <option value="mediterranean">Mediterranean</option>
+                  <option value="arabic">Arabic</option>
+                  <option value="caribbean">Caribbean</option>
+                  <option value="cajun">Cajun</option>
+                  <option value="bbq">Barbeque</option>
+                  <option value="diners">Diners</option>
+                  <option value="hotdogs">Fast Food</option>
                 </select>
               </div>
             </div>

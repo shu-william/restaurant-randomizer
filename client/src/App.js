@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './views/Home';
 import Login from './views/Login';
 import Favorites from './views/Favorites';
+import "./styles/styles.css"
 
 function App() {
   

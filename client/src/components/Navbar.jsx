@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import "../styles/styles.css"
 
 const Navbar = ({loggedIn, setLoggedIn}) => {
 
