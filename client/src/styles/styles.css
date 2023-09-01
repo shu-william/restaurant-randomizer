@@ -106,6 +106,13 @@ select {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.9em;
     color: rgb(255, 151, 82);
+    text-align: center;
+    margin-top: 2.5em;
+}
+
+.favText{
+    text-align: center;
+    margin-top: 1em;
 }
 
 /* "Pick A Random Restaurant" Button */
@@ -118,6 +125,7 @@ select {
     border: none;
     border-radius: .6em;
     padding: .4em;
+    text-align: center;
 }
 
 .randomButton:hover {

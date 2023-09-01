@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import zerostar from '../images/regular/zerostar.png';
@@ -113,15 +113,15 @@ const Favorites = (props) => {
     }
 
     return (
-        <div className="col-md-10 mx-auto my-3">
-            <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-            <h1 className="mb-3 favHeader">Favorites</h1>
+        <div className="my-5 favText">
+            {/* <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> */}
+            <h1 className="favHeader">Favorites</h1>
             {
                 loggedIn 
                 ?   favoriteRestaurants.length > 0 
                     ? <button className="randomButton" onClick={pickRandom}>Pick a random restaurant!</button>
-                    : "Please add restaurants to your favorites."
-                : "Please log in to view favorites."
+                    : <p className="favText">Please add restaurants to your favorites.</p>
+                : <p className="favText">Please log in to view favorites.</p>
             }
             {
                 favoriteRestaurants.map((restaurant) => {
