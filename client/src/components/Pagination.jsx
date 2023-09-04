@@ -40,7 +40,7 @@ const Pagination = (props) => {
     }
 
     return (
-        <div>
+        <div className="pagination">
             {
                 offset >= 20 ?
                 <button onClick={prevResults}>Previous</button>

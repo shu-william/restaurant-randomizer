@@ -133,7 +133,7 @@ const SearchForm = (props) => {
           <input
             type="submit"
             value="Find Restaurants Near Me"
-            className="btnStyle mt-3 mb-5"
+            className="btnStyle"
           />
         </form>
       </div>

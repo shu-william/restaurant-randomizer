@@ -12,6 +12,8 @@
     font-size: 1.4em;
     font-family: 'Roboto Mono', monospace;
     color: rgb(150, 133, 115);
+    background-color: rgb(255, 253, 208);
+    padding: 1em;
     
 }
 
@@ -23,9 +25,12 @@
     transform: translateY(2px);
 }
 
-/* .homeClass{
-    
-} */
+.submitBtn {
+    margin-top: 1em;
+}
+
+
+
 
 .formClass{
     display: flex;
@@ -35,7 +40,7 @@
     border-radius: 2em;
     padding: 1.2em;
     position: sticky;
-    margin-top: 5em;
+    margin-top: 8.5em;
     flex-direction:column;
     justify-content: space-between;
     background-color: rgb(255, 228, 179);
@@ -45,9 +50,8 @@
 
 .filterStyle{
     position: sticky;
-    top: 100px;
+    top: 155px;
     justify-content: flex-start;
-    color: aliceblue;
 }
 
 .navFilterStyle{
@@ -58,7 +62,7 @@
 }
 
 .resFilter{
-    margin-top: 5em;
+    margin-top: 8.5em;
 }
 
 .marginL{
@@ -80,6 +84,8 @@ select {
     border-style: none;
     font-family: 'Roboto Mono', monospace;
     font-size: .9em;
+    margin-top: 1em;
+    margin-left: .2em;
 }
 
 .btnStyle:hover{
@@ -107,7 +113,7 @@ select {
     font-size: 1.9em;
     color: rgb(255, 151, 82);
     text-align: center;
-    margin-top: 2.5em;
+    margin-top: 3.5em;
 }
 
 .favText{
@@ -130,4 +136,66 @@ select {
 
 .randomButton:hover {
     opacity: 0.6;
+}
+
+
+@media all and (max-width: 600px){
+
+    html, body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .homeClass{
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .btnStyle{
+        margin-top: 2em;
+        margin-left: 26%;
+        margin-bottom: 1em;
+        
+    }
+    .formClass{
+        margin-top: 7em;
+        width: 29em;
+        position: static;
+    }
+
+    .filterStyle{
+        display: flex;
+        justify-content: center;
+        position: static;
+    }
+
+
+    .navbarStyle {
+        margin-bottom: 0;
+    }
+
+    .resFilter{
+        margin-top: 2.5em;
+        margin-left: 13%;
+    }
+    .marginL{
+        background-color: rgb(255, 243, 230);
+        margin-left: 0;
+        margin-top: 2em;
+        padding-top: 0.2em
+    }
+
+    .pagination {
+        background-color: rgb(255, 243, 230);
+    }
+    .space{
+        background-color: rgb(255, 243, 230);
+        min-height: 5em;
+    }
+
+
 }
