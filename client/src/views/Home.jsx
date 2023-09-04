@@ -15,9 +15,9 @@ const Home = (props) => {
 
     return (
       <div>
-        <div className="d-flex justify-content-center col-md-6 mx-auto my-3 homeClass">  
+        <div className="col-md-6 mx-auto my-3">
           {/* <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> */}
-          <div className="d-flex justify-content-around">
+          <div className="d-flex homeClass">
             <div>
               <SearchForm
                 fetchedData={fetchedData}

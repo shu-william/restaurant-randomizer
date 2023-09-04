@@ -234,6 +234,8 @@ const RestaurantList = (props) => {
         offset={offset}
         setOffset={setOffset}
       />
+
+      <div className="space"></div>
     </div>
   );
 };
