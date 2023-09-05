@@ -3,6 +3,7 @@ A web application that draws from Yelp's Fusion third-party API to retrieve a li
 
 ## Product Backlog
 - Improve front-end design and UI
+- Fix Log-In page
 - Add more categories to filter restaurants by, and alphabetize category list. Consider adding filters in favorites list, or a 'sort by' option
 - Change category dropdown into a search feature that lets you select multiple categories
 - Allow users to select a range of cost options
