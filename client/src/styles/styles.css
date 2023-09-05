@@ -125,16 +125,35 @@ select {
 
 .randomButton {
     font-family: 'Roboto Mono', monospace;
-    font-size: .8em;
-    color: rgb(255, 115, 0);
-    background-color: rgb(255, 228, 179);
+    font-size: .9em;
+    color: rgb(255, 246, 239);
+    background-color: rgb(255, 164, 136);
     border: none;
     border-radius: .6em;
-    padding: .4em;
+    padding: .5em;
     text-align: center;
+    margin-top: 0.7em;
+    margin-bottom: 1.6em;
 }
 
 .randomButton:hover {
+    opacity: 0.6;
+}
+
+/* Previous & Next Button */
+
+.btn-prev-next {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+    background-color: rgb(255, 164, 136);
+    color: rgb(255, 246, 239);
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.4em;
+    margin-top: 0.7em;
+}
+
+.btn-prev-next:hover {
     opacity: 0.6;
 }
 
