@@ -108,23 +108,23 @@ const SearchForm = (props) => {
                   }}
                 >
                   <option value="tradamerican">American</option>
+                  <option value="arabic">Arabic</option>
+                  <option value="bbq">Barbeque</option>
+                  <option value="cajun">Cajun</option>
+                  <option value="caribbean">Caribbean</option>
                   <option value="chinese">Chinese</option>
-                  <option value="japanese">Japanese</option>
-                  <option value="vietnamese">Vietnamese</option>
-                  <option value="korean">Korean</option>
-                  <option value="thai">Thai</option>
+                  <option value="diners">Diners</option>
+                  <option value="hotdogs">Fast Food</option>
                   <option value="filipino">Filipino</option>
                   <option value="french">French</option>
                   <option value="german">German</option>
                   <option value="italian">Italian</option>
-                  <option value="mexican">Mexican</option>
+                  <option value="japanese">Japanese</option>
+                  <option value="korean">Korean</option>
                   <option value="mediterranean">Mediterranean</option>
-                  <option value="arabic">Arabic</option>
-                  <option value="caribbean">Caribbean</option>
-                  <option value="cajun">Cajun</option>
-                  <option value="bbq">Barbeque</option>
-                  <option value="diners">Diners</option>
-                  <option value="hotdogs">Fast Food</option>
+                  <option value="mexican">Mexican</option>
+                  <option value="thai">Thai</option>
+                  <option value="vietnamese">Vietnamese</option>
                 </select>
               </div>
             </div>
