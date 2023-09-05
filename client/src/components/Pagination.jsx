@@ -43,12 +43,16 @@ const Pagination = (props) => {
         <div className="pagination">
             {
                 offset >= 20 ?
-                <button onClick={prevResults}>Previous</button>
+                <button 
+                    onClick={prevResults}
+                    className="btn-prev-next">Previous</button>
                 : ""
             }
             {
                 fetchedData.length === 20 ?
-                <button onClick={nextResults}>Next</button>
+                <button 
+                    onClick={nextResults}
+                    className="btn-prev-next">Next</button>
                 : ""
             }
         </div>

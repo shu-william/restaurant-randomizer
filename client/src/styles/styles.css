@@ -125,7 +125,7 @@ select {
 
 .randomButton {
     font-family: 'Roboto Mono', monospace;
-    font-size: .8em;
+    font-size: .9em;
     color: rgb(255, 246, 239);
     background-color: rgb(255, 164, 136);
     border: none;
@@ -137,6 +137,23 @@ select {
 }
 
 .randomButton:hover {
+    opacity: 0.6;
+}
+
+/* Previous & Next Button */
+
+.btn-prev-next {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+    background-color: rgb(255, 164, 136);
+    color: rgb(255, 246, 239);
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.4em;
+    margin-top: 0.7em;
+}
+
+.btn-prev-next:hover {
     opacity: 0.6;
 }
 
