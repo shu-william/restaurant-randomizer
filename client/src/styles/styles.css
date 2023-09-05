@@ -126,12 +126,14 @@ select {
 .randomButton {
     font-family: 'Roboto Mono', monospace;
     font-size: .8em;
-    color: rgb(255, 115, 0);
-    background-color: rgb(255, 228, 179);
+    color: rgb(255, 246, 239);
+    background-color: rgb(255, 164, 136);
     border: none;
     border-radius: .6em;
-    padding: .4em;
+    padding: .5em;
     text-align: center;
+    margin-top: 0.7em;
+    margin-bottom: 1.6em;
 }
 
 .randomButton:hover {
