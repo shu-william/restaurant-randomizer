@@ -9,7 +9,7 @@ const Home = (props) => {
     const {favoriteRestaurants, setFavoriteRestaurants, loggedIn, setLoggedIn} = props;
     const [fetchedData, setFetchedData] = useState({});
     const [location, setLocation] = useState("");
-    const [cost, setCost] = useState(["1"]);
+    const [cost, setCost] = useState([]);
     const [cuisine, setCuisine] = useState(["tradamerican"]);
     const [offset, setOffset] = useState(0);
 
