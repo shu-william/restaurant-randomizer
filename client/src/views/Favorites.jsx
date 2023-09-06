@@ -113,7 +113,7 @@ const Favorites = (props) => {
     }
 
     return (
-        <div className="my-5 favText">
+        <div className="favText">
             {/* <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> */}
             <h1 className="favHeader">Favorites</h1>
             {

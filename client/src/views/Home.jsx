@@ -15,7 +15,7 @@ const Home = (props) => {
 
     return (
       <div>
-        <div className="col-md-6 mx-auto my-3">
+        <div className="col-md-6 mx-auto">
           {/* <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> */}
           <div className="d-flex homeClass">
             <div>
