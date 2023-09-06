@@ -8,10 +8,10 @@ const SearchForm = (props) => {
     const {setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, setOffset} = props;
 
     const [costs, setCosts] = useState({
-      1: false,
-      2: false,
-      3: false,
-      4: false
+      1: true,
+      2: true,
+      3: true,
+      4: true
     })
 
     const handleCostChange = (value) => {
@@ -35,6 +35,15 @@ const SearchForm = (props) => {
         if (!location.length > 0) {
             isValid = false;
         }
+        let costCheck = false;
+        for (let i = 1; i <= 4; i++) {
+          if (costs[i] === true) {
+            costCheck = true;
+          }
+        }
+        if (costCheck !== true) {
+          isValid = false;
+        }
         return isValid;
     }
 
@@ -56,7 +65,7 @@ const SearchForm = (props) => {
                 })
         }
         else {
-            setErrors("This field may not be blank.")
+            setErrors("Please specify a valid location and price range.")
         }
     }
 
@@ -65,7 +74,7 @@ const SearchForm = (props) => {
         <form onSubmit={submitHandler}>
           <div className="formClass">
             <div className="form-group">
-              {errors ? <p className="text-danger">{errors}</p> : ""}
+              {errors ? <p className="errorStyle">{errors}</p> : ""}
               <label htmlFor="location">Please enter your location:</label>
               <input
                 type="text"
@@ -84,6 +93,7 @@ const SearchForm = (props) => {
                   name="cost"
                   id="1"
                   value="1"
+                  checked={costs[1]}
                   onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />
@@ -93,6 +103,7 @@ const SearchForm = (props) => {
                   name="cost"
                   id="2"
                   value="2"
+                  checked={costs[2]}
                   onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />
@@ -102,6 +113,7 @@ const SearchForm = (props) => {
                   name="cost"
                   id="3"
                   value="3"
+                  checked={costs[3]}
                   onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />
@@ -111,6 +123,7 @@ const SearchForm = (props) => {
                   name="cost"
                   id="4"
                   value="4"
+                  checked={costs[4]}
                   onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />

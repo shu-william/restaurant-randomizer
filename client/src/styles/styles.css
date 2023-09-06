@@ -102,6 +102,11 @@ select {
     margin-left: 2px;
 }
 
+.errorStyle{
+    width: 16em;
+    color: red
+}
+
 /* Favorites Page */
 
 .favHeader{
