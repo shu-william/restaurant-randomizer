@@ -7,6 +7,25 @@ const SearchForm = (props) => {
 
     const {setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, setOffset} = props;
 
+    const [costs, setCosts] = useState({
+      1: false,
+      2: false,
+      3: false,
+      4: false
+    })
+
+    const handleCostChange = (value) => {
+      costs[value] = (!costs[value]);
+      let arr = [];
+      for (let i = 0; i < 4; i++) {
+        if (costs[i]) {
+          arr.push(i);
+        }
+      }
+      console.log(arr);
+      setCost(arr);
+    }
+
     const formValidator = () => {
         let isValid = true;
         if (!location.length > 0) {
@@ -54,41 +73,41 @@ const SearchForm = (props) => {
               />
             </div>
             <div>
-              <div className="radio my-2">
+              <div className="my-2">
                 <h6>Cost:</h6>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="cost"
                   id="1"
                   value="1"
-                  onChange={(e) => setCost(e.target.value)}
+                  onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />
                 <label htmlFor="1">$</label>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="cost"
                   id="2"
                   value="2"
-                  onChange={(e) => setCost(e.target.value)}
+                  onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />
                 <label htmlFor="2">$$</label>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="cost"
                   id="3"
                   value="3"
-                  onChange={(e) => setCost(e.target.value)}
+                  onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />
                 <label htmlFor="3">$$$</label>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="cost"
                   id="4"
                   value="4"
-                  onChange={(e) => setCost(e.target.value)}
+                  onChange={(e) => handleCostChange(e.target.value)}
                   className="mx-1"
                 />
                 <label htmlFor="4">$$$$</label>
