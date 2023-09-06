@@ -4,9 +4,7 @@ require('dotenv').config();
 const API_KEY = process.env.API_KEY;
 
 module.exports.getRestaurantsByLocation = (req, res) => {
-    console.log(req.query.cost) // fix this after solving async issue in SearchForm
-    // let price = req.query.cost.join();
-    // console.log(price, req.query.cost);
+    let price = req.query.cost.join();
     let categories = req.query.cuisine.join();
     const options = {
         headers: {

@@ -14,12 +14,13 @@ const SearchForm = (props) => {
       4: false
     })
 
-    
-
-    const handleCostChange = async (value) => { // current issue is that setCost is being run before setCosts completes its async function
+    const handleCostChange = (value) => {
       setCosts({...costs,
         [value]: !costs[value]
       })
+    }
+
+    useEffect(() => {
       let arr = [];
       for (let i = 1; i <= 4; i++) {
         if (costs[i]) {
@@ -27,11 +28,7 @@ const SearchForm = (props) => {
         }
       }
       setCost(arr);
-    }
-
-    // useEffect(() => {
-    //   console.log(cost)
-    // }, [cost])
+    }, [costs])
 
     const formValidator = () => {
         let isValid = true;
