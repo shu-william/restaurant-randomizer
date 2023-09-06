@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const SearchForm = (props) => {
@@ -15,16 +15,20 @@ const SearchForm = (props) => {
     })
 
     const handleCostChange = (value) => {
-      costs[value] = (!costs[value]);
+      setCosts({...costs,
+        [value]: !costs[value]
+      })
+    }
+
+    useEffect(() => {
       let arr = [];
-      for (let i = 0; i < 4; i++) {
+      for (let i = 1; i <= 4; i++) {
         if (costs[i]) {
           arr.push(i);
         }
       }
-      console.log(arr);
       setCost(arr);
-    }
+    }, [costs])
 
     const formValidator = () => {
         let isValid = true;

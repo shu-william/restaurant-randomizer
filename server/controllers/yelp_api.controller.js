@@ -4,6 +4,7 @@ require('dotenv').config();
 const API_KEY = process.env.API_KEY;
 
 module.exports.getRestaurantsByLocation = (req, res) => {
+    let price = req.query.cost.join();
     let categories = req.query.cuisine.join();
     const options = {
         headers: {
@@ -12,7 +13,7 @@ module.exports.getRestaurantsByLocation = (req, res) => {
         },
         params: {
             location: req.query.location,
-            price: req.query.cost,
+            price: price,
             categories: categories,
             sort_by: 'best_match',
             limit: 20,
