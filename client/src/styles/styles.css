@@ -66,7 +66,6 @@
     margin-left: 4em;
 }
 
-
 select {
     width: 100%;
     border: none;
@@ -110,12 +109,18 @@ select {
     font-size: 1.9em;
     color: rgb(255, 151, 82);
     text-align: center;
-    margin-top: 3.5em;
+    margin-top: 4em;
 }
 
 .favText{
     text-align: center;
     margin-top: 1em;
+}
+
+/* Login Page */
+
+.loginStyle {
+    margin-top: 6.2em;
 }
 
 /* "Pick A Random Restaurant" Button */

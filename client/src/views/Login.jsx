@@ -3,7 +3,7 @@ import LoginForm from '../components/LoginForm';
 
 const Login = ({ loggedIn, setLoggedIn }) => {
     return (
-        <div className="my-3">
+        <div className="loginStyle">
             <LoginForm loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </div>
     )
