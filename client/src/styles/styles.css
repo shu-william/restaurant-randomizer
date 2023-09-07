@@ -140,6 +140,23 @@ select {
 
 .randomButton:hover {
     opacity: 0.6;
+    color: rgb(252, 76, 22);
+}
+
+/* Add/Added To Favorites Button */
+
+.btn-info {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8em;
+    background-color: rgb(255, 183, 170);
+    color: rgb(255, 246, 239);
+    border: none;
+}
+
+.btn-info:hover {
+    opacity: 0.6;
+    background-color: rgb(255, 183, 170);
+    color: rgb(252, 44, 96);
 }
 
 /* Previous & Next Button */
@@ -158,6 +175,7 @@ select {
 
 .btn-prev-next:hover {
     opacity: 0.6;
+    color: rgb(252, 76, 22);
 }
 
 /* Mobile Perspective*/
