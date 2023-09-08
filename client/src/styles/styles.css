@@ -244,5 +244,10 @@ select {
         min-height: 5em;
     }
 
+    .loginStyle {
+    margin-left: 5%;
+    margin-right: 5%;
+    }
+
 
 }
