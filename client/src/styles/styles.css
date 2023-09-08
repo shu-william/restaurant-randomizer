@@ -37,6 +37,7 @@
     border-radius: 2em;
     padding: 1.2em;
     position: sticky;
+    width: 20em;
     margin-top: 8.5em;
     flex-direction:column;
     justify-content: space-between;
@@ -103,7 +104,7 @@ select {
 }
 
 .errorStyle{
-    width: 16em;
+    width: 15em;
     color: red
 }
 
