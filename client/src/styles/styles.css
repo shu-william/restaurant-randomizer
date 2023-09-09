@@ -149,6 +149,10 @@ select {
     color: rgb(252, 76, 22);
 }
 
+.randomButton:active {
+    transform: translateY(2px);
+}
+
 /* Add/Added To Favorites Button */
 
 .btn-info {
@@ -163,6 +167,10 @@ select {
     opacity: 0.6;
     background-color: rgb(255, 183, 170);
     color: rgb(252, 44, 96);
+}
+
+.btn-info:active {
+    transform: translateY(2px);
 }
 
 /* Previous & Next Button */
@@ -182,6 +190,10 @@ select {
 .btn-prev-next:hover {
     opacity: 0.6;
     color: rgb(252, 76, 22);
+}
+
+.btn-prev-next:active {
+    transform: translateY(2px);
 }
 
 /* Mobile Perspective*/
