@@ -103,6 +103,27 @@ select {
     margin-left: 2px;
 }
 
+.locationBtn{
+    background: url('../images/gps-icon.jpg');
+    background-repeat: no-repeat;
+    background-position: 30%;
+    background-color: white;
+    background-size: 18px;
+    border-radius: 4px;
+    border: 1px solid rgba(68, 252, 236, 0.726);
+    height: 30px;
+    width: 30px;
+    margin-left: 0.4em;
+}
+
+.locationBtn:hover{
+    opacity: 0.9;
+}
+
+.locationBtn:active{
+    transform: translate(1px, 1px);
+}
+
 .errorStyle{
     width: 15em;
     color: red

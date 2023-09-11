@@ -140,19 +140,21 @@ const SearchForm = (props) => {
             <div className="form-group">
               {errors ? <p className="errorStyle">{errors}</p> : ""}
               <label htmlFor="location">Enter your location:</label>
-              <input
-                type="text"
-                name="location"
-                id="location"
-                value={location}
-                onChange={(e) => {
-                  setLocation(e.target.value);
-                  setLatitude("");
-                  setLongitude("");
-                }}
-                className="form-control"
-              />
-              <button type="button" onClick={getLocation}>Get Location</button>
+              <div className="d-flex align-items-center">
+                <input
+                  type="text"
+                  name="location"
+                  id="location"
+                  value={location}
+                  onChange={(e) => {
+                    setLocation(e.target.value);
+                    setLatitude("");
+                    setLongitude("");
+                  }}
+                  className="form-control"
+                />
+                <button type="button" onClick={getLocation} className="locationBtn"></button>                
+              </div>
             </div>
             <div>
               <div className="my-2">
