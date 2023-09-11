@@ -4,7 +4,7 @@ import Select from 'react-select';
 
 const SearchForm = (props) => {
 
-    const {setFetchedData, location, setLocation, cost, setCost, cuisine, setCuisine, setOffset} = props;
+    const {setFetchedData, location, setLocation, latitude, setLatitude, longitude, setLongitude, cost, setCost, cuisine, setCuisine, setOffset} = props;
 
     const [errors, setErrors] = useState("");
 
@@ -41,6 +41,17 @@ const SearchForm = (props) => {
       { value: "vietnamese", label: "Vietnamese" },
     ]
 
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successLocation);
+      }
+    }
+
+    function successLocation(position) {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    }
+
     // This, along with the useEffect, updates the cost variable to be sent to the Yelp API
     const handleCostChange = (value) => {
       setCosts({...costs,
@@ -61,7 +72,7 @@ const SearchForm = (props) => {
     const formValidator = () => {
         let isValid = true;
         // Location Validator
-        if (!location.length > 0) {
+        if (!location.length > 0 && !latitude) {
             isValid = false;
         }
         // Cost Validator
@@ -83,9 +94,23 @@ const SearchForm = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log();
         setErrors("");
         if(formValidator()) {
+          if (latitude && longitude) { // send coordinates if available
+            axios.get('http://localhost:8000/yelp_api', {
+              params: {
+                latitude: latitude,
+                longitude: longitude,
+                cost: cost,
+                cuisine: cuisine,
+                offset: 0,
+              }
+            })
+              .then(res => {
+                setOffset(0);
+                setFetchedData(res.data.businesses);
+            })
+          } else { // otherwise use location provided by user
             axios.get('http://localhost:8000/yelp_api', {
                 params: {
                     location: location,
@@ -94,10 +119,14 @@ const SearchForm = (props) => {
                     offset: 0,
                 }
             })
-                .then(res => {
-                  setOffset(0);
-                  setFetchedData(res.data.businesses);
-                })
+              .then(res => {
+                setOffset(0);
+                setFetchedData(res.data.businesses);
+              })
+              .catch(err => {
+                setErrors(err.response.data.message);
+              })
+          }
         }
         else {
             setErrors("Please specify a valid location, price range, and cuisine.")
@@ -116,9 +145,14 @@ const SearchForm = (props) => {
                 name="location"
                 id="location"
                 value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                onChange={(e) => {
+                  setLocation(e.target.value);
+                  setLatitude("");
+                  setLongitude("");
+                }}
                 className="form-control"
               />
+              <button type="button" onClick={getLocation}>Get Location</button>
             </div>
             <div>
               <div className="my-2">

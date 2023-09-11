@@ -9,6 +9,8 @@ const Home = (props) => {
     const {favoriteRestaurants, setFavoriteRestaurants, loggedIn, setLoggedIn} = props;
     const [fetchedData, setFetchedData] = useState({});
     const [location, setLocation] = useState("");
+    const [latitude, setLatitude] = useState("");
+    const [longitude, setLongitude] = useState("");
     const [cost, setCost] = useState([]);
     const [cuisine, setCuisine] = useState(["tradamerican"]);
     const [offset, setOffset] = useState(0);
@@ -24,6 +26,10 @@ const Home = (props) => {
                 setFetchedData={setFetchedData}
                 location={location}
                 setLocation={setLocation}
+                latitude={latitude}
+                setLatitude={setLatitude}
+                longitude={longitude}
+                setLongitude={setLongitude}
                 cost={cost}
                 setCost={setCost}
                 cuisine={cuisine}
@@ -39,6 +45,10 @@ const Home = (props) => {
                 setFetchedData={setFetchedData}
                 location={location}
                 setLocation={setLocation}
+                latitude={latitude}
+                setLatitude={setLatitude}
+                longitude={longitude}
+                setLongitude={setLongitude}
                 cost={cost}
                 setCost={setCost}
                 cuisine={cuisine}
