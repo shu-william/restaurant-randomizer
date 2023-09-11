@@ -52,10 +52,6 @@ const SearchForm = (props) => {
       setLongitude(position.coords.longitude);
     }
 
-    useEffect(() => {
-      console.log(latitude, longitude);
-    }, [latitude, longitude])
-
     // This, along with the useEffect, updates the cost variable to be sent to the Yelp API
     const handleCostChange = (value) => {
       setCosts({...costs,
@@ -98,7 +94,6 @@ const SearchForm = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log();
         setErrors("");
         if(formValidator()) {
           if (latitude && longitude) { // send coordinates if available
@@ -110,9 +105,10 @@ const SearchForm = (props) => {
                 cuisine: cuisine,
                 offset: 0,
               }
-            }).then(res => {
-              setOffset(0);
-              setFetchedData(res.data.businesses);
+            })
+              .then(res => {
+                setOffset(0);
+                setFetchedData(res.data.businesses);
             })
           } else { // otherwise use location provided by user
             axios.get('http://localhost:8000/yelp_api', {
@@ -123,10 +119,13 @@ const SearchForm = (props) => {
                     offset: 0,
                 }
             })
-                .then(res => {
-                  setOffset(0);
-                  setFetchedData(res.data.businesses);
-                })
+              .then(res => {
+                setOffset(0);
+                setFetchedData(res.data.businesses);
+              })
+              .catch(err => {
+                setErrors(err.response.data.message);
+              })
           }
         }
         else {
@@ -146,10 +145,14 @@ const SearchForm = (props) => {
                 name="location"
                 id="location"
                 value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                onChange={(e) => {
+                  setLocation(e.target.value);
+                  setLatitude("");
+                  setLongitude("");
+                }}
                 className="form-control"
               />
-              <button onClick={getLocation}>Get Location</button>
+              <button type="button" onClick={getLocation}>Get Location</button>
             </div>
             <div>
               <div className="my-2">

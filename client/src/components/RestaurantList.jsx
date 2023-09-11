@@ -23,6 +23,8 @@ const RestaurantList = (props) => {
     setFetchedData,
     location,
     setLocation,
+    latitude,
+    longitude,
     cost,
     setCost,
     cuisine,
@@ -227,6 +229,8 @@ const RestaurantList = (props) => {
         setFetchedData={setFetchedData}
         location={location}
         setLocation={setLocation}
+        latitude={latitude}
+        longitude={longitude}
         cost={cost}
         setCost={setCost}
         cuisine={cuisine}

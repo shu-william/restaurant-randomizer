@@ -198,7 +198,6 @@ select {
 
 /* Mobile Perspective*/
 
-
 @media all and (max-width: 600px){
 
     html, body {
@@ -261,6 +260,5 @@ select {
     margin-left: 5%;
     margin-right: 5%;
     }
-
 
 }
