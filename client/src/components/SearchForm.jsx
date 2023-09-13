@@ -143,6 +143,9 @@ const SearchForm = (props) => {
               .then(res => {
                 setOffset(0);
                 setFetchedData(res.data.businesses);
+                if (res.data.businesses.length === 0) {
+                  setErrors("Your search did not return any results.")
+                }
             })
           } else { // otherwise use location provided by user
             axios.get('http://localhost:8000/yelp_api', {
@@ -156,6 +159,9 @@ const SearchForm = (props) => {
               .then(res => {
                 setOffset(0);
                 setFetchedData(res.data.businesses);
+                if (res.data.businesses.length === 0) {
+                  setErrors("Your search did not return any results.")
+                }
               })
               .catch(err => {
                 setErrors(err.response.data.message);
