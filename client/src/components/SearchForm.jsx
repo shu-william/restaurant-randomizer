@@ -20,24 +20,58 @@ const SearchForm = (props) => {
     const [emptySelect, setEmptySelect] = useState(false);
 
     const selectOptions = [
+      { value: "african", label: "African" },
       { value: "tradamerican", label: "American" },
-      { value: "arabic", label: "Arabic" },
+      { value: "arabian", label: "Arabic" },
+      { value: "argentine", label: "Argentine" },
+      { value: "armenian", label: "Armenian" },
       { value: "bbq", label: "Barbeque" },
+      { value: "belgian", label: "Belgian" },
+      { value: "brazilian", label: "Brazilian" },
+      { value: "breakfast_brunch", label: "Breakfast" },
+      { value: "breweries", label: "Breweries" },
+      { value: "british", label: "British" },
+      { value: "buffets", label: "Buffets" },
+      { value: "bulgarian", label: "Bulgarian" },
+      { value: "cafes", label: "Cafes" },
       { value: "cajun", label: "Cajun" },
       { value: "caribbean", label: "Caribbean" },
       { value: "chinese", label: "Chinese" },
+      { value: "cuban", label: "Cuban" },
       { value: "diners", label: "Diners" },
+      { value: "desserts", label: "Desserts" },
+      { value: "ethiopian", label: "Ethiopian" },
       { value: "hotdogs", label: "Fast Food" },
       { value: "filipino", label: "Filipino" },
       { value: "french", label: "French" },
+      { value: "gastropubs", label: "Gastropubs" },
       { value: "german", label: "German" },
+      { value: "gluten_free", label: "Gluten Free" },
+      { value: "greek", label: "Greek" },
+      { value: "halal", label: "Halal" },
       { value: "hawaiian", label: "Hawaiian" },
+      { value: "indpak", label: "Indian" },
+      { value: "indonesian", label: "Indonesian" },
       { value: "italian", label: "Italian" },
+      { value: "irish", label: "Irish" },
       { value: "japanese", label: "Japanese" },
       { value: "korean", label: "Korean" },
+      { value: "kosher", label: "Kosher" },
+      { value: "laotian", label: "Laotian" },
+      { value: "latin", label: "Latin American" },
+      { value: "malaysian", label: "Malaysian" },
       { value: "mediterranean", label: "Mediterranean" },
       { value: "mexican", label: "Mexican" },
+      { value: "mongolian", label: "Mongolian" },
+      { value: "moroccan", label: "Moroccan" },
+      { value: "persian", label: "Persian" },
+      { value: "portuguese", label: "Portuguese" },
+      { value: "russian", label: "Russian" },
+      { value: "spanish", label: "Spanish" },
       { value: "thai", label: "Thai" },
+      { value: "turkish", label: "Turkish" },
+      { value: "vegan", label: "Vegan" },
+      { value: "vegetarian", label: "Vegetarian" },
       { value: "vietnamese", label: "Vietnamese" },
     ]
 
@@ -208,7 +242,7 @@ const SearchForm = (props) => {
                   isClearable={false}
                   name="cuisine"
                   id="cuisine"
-                  defaultValue={selectOptions[0]}
+                  defaultValue={selectOptions[1]}
                   onChange={(selectedOptions) => {
                     selectedOptions.length === 0 ? setEmptySelect(true) : setEmptySelect(false);
                     setCuisine(selectedOptions.map(option => option.value))
