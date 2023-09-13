@@ -175,11 +175,12 @@ const RestaurantList = (props) => {
                   <h3>{restaurant.name}</h3>
                   <p>
                     {restaurant.location.address1}, {restaurant.location.city}{" "}
-                    {restaurant.location.zip_code}{" "}
+                    {restaurant.location.zip_code}, {((restaurant.distance) * 0.00062137).toFixed(1)} mi
                     <a
                       href={restaurant.url}
                       target="_blank"
                       rel="noreferrer noopener"
+                      className="mx-2"
                     >
                       <img
                         src={yelp_logo}
