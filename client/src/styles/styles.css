@@ -14,7 +14,6 @@
     color: rgb(150, 133, 115);
     background-color: rgb(255, 253, 208);
     padding: 1em;
-    
 }
 
 .linkStyle:hover{
@@ -225,7 +224,6 @@ select {
         height: 100%;
         display: flex;
         flex-direction: column;
-
     }
 
     .homeClass{
@@ -239,8 +237,8 @@ select {
         margin-top: 2em;
         margin-left: 26%;
         margin-bottom: 1em;
-        
     }
+
     .formClass{
         margin-top: 7em;
         width: 29em;
@@ -253,7 +251,6 @@ select {
         position: static;
     }
 
-
     .navbarStyle {
         margin-bottom: 0;
     }
@@ -262,6 +259,7 @@ select {
         margin-top: 2.5em;
         margin-left: 13%;
     }
+
     .marginL{
         background-color: rgb(255, 243, 230);
         margin-left: 0;
@@ -272,6 +270,7 @@ select {
     .pagination {
         background-color: rgb(255, 243, 230);
     }
+
     .space{
         background-color: rgb(255, 243, 230);
         min-height: 5em;
@@ -281,5 +280,4 @@ select {
     margin-left: 5%;
     margin-right: 5%;
     }
-
 }

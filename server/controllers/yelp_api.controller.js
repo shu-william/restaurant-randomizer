@@ -43,7 +43,6 @@ module.exports.getRestaurantsByLocation = (req, res) => {
         }        
     }
 
-
     async function fetchData() {
         try {
             const { data } = await axios.get(
