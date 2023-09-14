@@ -5,6 +5,7 @@ import RestaurantList from '../components/RestaurantList';
 import "../styles/styles.css";
 
 const Home = (props) => {
+ 
 
     const {favoriteRestaurants, setFavoriteRestaurants, loggedIn, setLoggedIn} = props;
     const [fetchedData, setFetchedData] = useState({});
