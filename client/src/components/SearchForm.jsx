@@ -142,7 +142,7 @@ const SearchForm = (props) => {
             })
               .then(res => {
                 setOffset(0);
-                console.log(res.data.businesses[0])
+                // console.log(res.data.businesses[0]);
                 setFetchedData(res.data.businesses);
                 if (res.data.businesses.length === 0) {
                   setErrors("Your search did not return any results.")
