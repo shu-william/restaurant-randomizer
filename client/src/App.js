@@ -37,7 +37,6 @@ function App() {
         {/* Add Footer here */}
       </div>
     </BrowserRouter>
-
   );
 }
 
