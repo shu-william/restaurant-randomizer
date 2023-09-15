@@ -58,3 +58,30 @@ module.exports.getRestaurantsByLocation = (req, res) => {
 
     fetchData();
 }
+
+module.exports.getReviewById = (req, res) => {
+    const options = {
+        headers: {
+            accept: 'application/json',
+            Authorization: API_KEY
+        },
+        params: {
+            limit: '1',
+            sort_by: 'yelp_sort'
+        }
+    }
+
+    async function fetchReview(id) {
+        try {
+            const { data } = await axios.get(
+                'https://api.yelp.com/v3/businesses/' + id + '/reviews',
+                options
+            )
+            res.send(data);
+        } catch (err) {
+            res.status(400).json({message: "The specified restaurant did not return any reviews."});
+        }
+    }
+
+    fetchReview(req.query.restaurantId);
+}

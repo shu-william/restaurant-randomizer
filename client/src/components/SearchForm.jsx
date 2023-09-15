@@ -142,6 +142,7 @@ const SearchForm = (props) => {
             })
               .then(res => {
                 setOffset(0);
+                console.log(res.data.businesses[0])
                 setFetchedData(res.data.businesses);
                 if (res.data.businesses.length === 0) {
                   setErrors("Your search did not return any results.")
@@ -177,10 +178,10 @@ const SearchForm = (props) => {
       <div className="filterStyle">
         <form onSubmit={submitHandler}>
           <div className="formClass">
-            <div className="form-group">
+            <div className="form-group mt-2 mb-3">
               {errors ? <p className="errorStyle">{errors}</p> : ""}
               <label htmlFor="location">Enter your location:</label>
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center my-2">
                 <input
                   type="text"
                   name="location"
@@ -197,7 +198,7 @@ const SearchForm = (props) => {
               </div>
             </div>
             <div>
-              <div className="my-2">
+              <div className="mt-2 mb-3">
                 <h6>Cost:</h6>
                 <input
                   type="checkbox"
@@ -240,7 +241,7 @@ const SearchForm = (props) => {
                 />
                 <label htmlFor="4">$$$$</label>
               </div>
-              <div className="my-2">
+              <div className="mt-4 mb-3">
                 <h6>Cuisine:</h6>
                 <Select
                   isMulti
