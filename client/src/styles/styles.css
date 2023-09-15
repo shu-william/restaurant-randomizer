@@ -30,15 +30,14 @@
 
 .formClass{
     display: flex;
-    border-style:solid;
+    border-style: solid;
     border-color: rgb(255, 228, 179);
     border-width: .4em;
     border-radius: 2em;
     padding: 1.2em;
-    position: sticky;
     width: 20em;
     margin-top: 8.5em;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-between;
     background-color: rgb(255, 228, 179);
     color: rgb(168, 131, 96);
@@ -80,7 +79,7 @@ select {
     border-style: none;
     font-family: 'Roboto Mono', monospace;
     font-size: .9em;
-    margin-top: 1em;
+    margin-top: 1.6em;
     margin-left: .2em;
 }
 

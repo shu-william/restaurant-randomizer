@@ -135,13 +135,21 @@ const RestaurantList = (props) => {
       .catch((err) => console.log(err));
   }
 
-  function pickRandom() {
+  async function pickRandom() {
     let randomRestaurant =
       fetchedData[Math.floor(Math.random() * fetchedData.length)];
+    let reviewExcerpt = await axios.get('http://localhost:8000/yelp_api/review', {
+      params: {
+        restaurantId: randomRestaurant.id
+      }
+    })
+    reviewExcerpt = reviewExcerpt.data.reviews[0];
+    // Adjust and design the alert to contain excerpt, name, rating, and picture
     MySwal.fire({
       title: (
         <div>
           <p>{randomRestaurant.name}</p>
+          <p>{reviewExcerpt.text} - {reviewExcerpt.user.name}</p>
           <p>
             <a
               href={randomRestaurant.url}
