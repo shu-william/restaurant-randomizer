@@ -1,14 +1,21 @@
-.titleFont{
+.titleFont {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.9em;
     color:rgb(150, 133, 115)
 }
 
-.navbarStyle{
+.marginL {
+    margin-left: 4em;
+}
+
+/* Navbar */
+
+.navbarStyle {
     width: auto;
     display: flex;
     justify-content: center;
     margin-bottom: 1.2em;
+    margin-left: -0.4em;
     font-size: 1.4em;
     font-family: 'Roboto Mono', monospace;
     color: rgb(150, 133, 115);
@@ -16,19 +23,51 @@
     padding: 1em;
 }
 
-.linkStyle:hover{
+.navFilterStyle {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    top: 0px;
+    width: 100%;
+    height: 5em;
+    background-color: rgb(255, 253, 208);
+}
+
+.linkStyle {
+    margin: 0em 1.4em 0em 1.4em;
+}
+
+.linkStyle:hover {
     color: orange
 }
 
-.linkStyle:active{
+.linkStyle:active {
     transform: translateY(2px);
 }
+
+#orangeLogo {
+    background-image: url('../images/orange.png');
+    background-size: cover;
+    width: 3em;
+    height: 3em;
+    margin: 0em -2.4em 0.3em 2.4em;
+    vertical-align: middle;
+    border: none;
+    background-color: rgb(255, 253, 208);
+}
+
+#orangeLogo:hover {
+    opacity: 0.6;
+}
+
+/* Filter */
 
 .submitBtn {
     margin-top: 1em;
 }
 
-.formClass{
+.formClass {
     display: flex;
     border-style: solid;
     border-color: rgb(255, 228, 179);
@@ -44,25 +83,10 @@
     font-family: 'Roboto Mono', monospace;
 }
 
-.filterStyle{
+.filterStyle {
     position: sticky;
     top: 155px;
     justify-content: flex-start;
-}
-
-.navFilterStyle{
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    background-color: rgb(255, 252, 250);
-}
-
-.resFilter{
-    margin-top: 8.5em;
-}
-
-.marginL{
-    margin-left: 4em;
 }
 
 select {
@@ -71,7 +95,31 @@ select {
     border-radius: 8px;
 }
 
-.btnStyle{
+.errorStyle {
+    width: 15em;
+    color: red
+}
+
+/* Restaurant List */
+
+.resList {
+    margin-top: 8.5em;
+    margin-bottom: 5em;
+}
+
+.ratingStyle {
+    width: 8em;
+}
+
+.logoStyle {
+    width: 4em;
+    vertical-align: bottom;
+    margin-left: 2px;
+}
+
+/* Buttons */
+
+.btnStyle {
     background-color:rgb(255, 178, 115);
     color: rgb(250, 243, 211);
     border-radius: 12px;
@@ -81,27 +129,18 @@ select {
     font-size: .9em;
     margin-top: 1.6em;
     margin-left: .2em;
+    margin-right: .2em;
 }
 
-.btnStyle:hover{
+.btnStyle:hover {
     opacity: 0.6;
 }
 
-.btnStyle:active{
+.btnStyle:active {
     transform: translateY(2px);
 }
 
-.ratingStyle{
-    width: 8em;
-}
-
-.logoStyle{
-    width: 4em;
-    vertical-align: bottom;
-    margin-left: 2px;
-}
-
-.locationBtn{
+.locationBtn {
     background: url('../images/gps-icon.jpg');
     background-repeat: no-repeat;
     background-position: 30%;
@@ -114,22 +153,43 @@ select {
     margin-left: 0.4em;
 }
 
-.locationBtn:hover{
+.locationBtn:hover {
     opacity: 0.9;
 }
 
-.locationBtn:active{
+.locationBtn:active {
     transform: translate(1px, 1px);
 }
 
-.errorStyle{
-    width: 15em;
-    color: red
+/* Footer */
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(255, 253, 208);
+}
+
+.footerContent {
+    margin: 1em 2em;
+}
+
+.footerLink {
+    text-decoration: none;
+    color: rgb(26, 24, 24);
+}
+
+#footerYelpLogo {
+    width: 3.2em;
+    vertical-align: text-top;
 }
 
 /* Favorites Page */
 
-.favHeader{
+.favHeader {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.9em;
     color: rgb(255, 151, 82);
@@ -137,7 +197,7 @@ select {
     margin-top: 4em;
 }
 
-.favText{
+.favText {
     text-align: center;
     margin-top: 1em;
 }
@@ -219,32 +279,40 @@ select {
 
 @media all and (max-width: 600px){
 
+    #orangeLogo {
+        visibility: hidden;
+    }
+
     html, body {
         height: 100%;
         display: flex;
         flex-direction: column;
     }
 
-    .homeClass{
+    .homeClass {
         flex-direction: column;
         justify-content: center;
         padding: 0;
         margin: 0;
     }
 
-    .btnStyle{
+    .btnStyle {
         margin-top: 2em;
         margin-left: 26%;
         margin-bottom: 1em;
     }
 
-    .formClass{
+    .linkStyle {
+        margin: 0em 0.4em 0em 0.4em;
+    }
+
+    .formClass {
         margin-top: 7em;
         width: 29em;
         position: static;
     }
 
-    .filterStyle{
+    .filterStyle {
         display: flex;
         justify-content: center;
         position: static;
@@ -252,25 +320,30 @@ select {
 
     .navbarStyle {
         margin-bottom: 0;
+        margin-left: -0.4em;
     }
 
-    .resFilter{
+    .resFilter {
         margin-top: 2.5em;
         margin-left: 13%;
     }
 
-    .marginL{
+    .marginL {
         background-color: rgb(255, 243, 230);
         margin-left: 0;
         margin-top: 2em;
         padding-top: 0.2em
     }
 
+    .footerContent {
+        margin: 0.4em 1em;
+    }
+
     .pagination {
         background-color: rgb(255, 243, 230);
     }
 
-    .space{
+    .space {
         background-color: rgb(255, 243, 230);
         min-height: 5em;
     }

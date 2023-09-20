@@ -5,6 +5,7 @@ import Home from './views/Home';
 import Login from './views/Login';
 import Favorites from './views/Favorites';
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import "./styles/styles.css"
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
           <Route path="/favorites" element={<Favorites favoriteRestaurants={favoriteRestaurants} setFavoriteRestaurants={setFavoriteRestaurants} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route path="*" element={<Navigate to="/home" replace favoriteRestaurants={favoriteRestaurants} setFavoriteRestaurants={setFavoriteRestaurants} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         </Routes>
-        {/* Add Footer here */}
+        <Footer />
       </div>
     </BrowserRouter>
   );
