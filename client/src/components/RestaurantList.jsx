@@ -148,7 +148,7 @@ const RestaurantList = (props) => {
     MySwal.fire({
       title: (
         <div>
-          <p>{randomRestaurant.name}</p>
+          <h1>{randomRestaurant.name}</h1>
           <p>{reviewExcerpt.text} - {reviewExcerpt.user.name}</p>
           <p>
             <a
@@ -167,7 +167,7 @@ const RestaurantList = (props) => {
   }
 
   return (
-    <div className="resFilter">
+    <div className="resList">
       <h1 className="mb-3 titleFont">Restaurants In Your Location:</h1>
       {fetchedData.length > 0 ? (
         <button className="randomButton" onClick={pickRandom}>

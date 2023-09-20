@@ -1,6 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import orange from "../images/orange.png";
+
+const MySwal = withReactContent(Swal);
 
 const Navbar = ({loggedIn, setLoggedIn}) => {
 
@@ -17,21 +22,39 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
             .catch(err => console.log(err))
     }
 
+    function orangix() {
+      MySwal.fire({
+        title: (
+          <div>
+            <h1>orangix</h1>
+            <p>pizza is a flour</p>
+            <p>carbatuib is a blower</p>
+            <p>the end</p>
+          </div>
+        ),
+        color: "orange",
+        background: "white",
+      })
+    }
+
     return (
         
       <header className="navFilterStyle">
+          <div>
+            <button type="button" onClick={orangix} id="orangeLogo"></button>
+          </div>
           <nav className="navbar navbarStyle">
-            <Link to={"/home"} className="nav-link mx-3 linkStyle">
+            <Link to={"/home"} className="nav-link linkStyle">
               Home
             </Link>
-            <Link to={"/favorites"} className="nav-link mx-3 linkStyle">
+            <Link to={"/favorites"} className="nav-link linkStyle">
               Favorites
             </Link>
             {loggedIn ? (
               <Link
                 to={"/"}
                 onClick={(e) => logoutUser(e)}
-                className="nav-link mx-3 linkStyle"
+                className="nav-link linkStyle"
               >
                 Logout
               </Link>
@@ -39,12 +62,15 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
               <Link
                 to={"/"}
                 onClick={(e) => logoutUser(e)}
-                className="nav-link mx-3 linkStyle"
+                className="nav-link linkStyle"
               >
                 Login
               </Link>
             )}
           </nav>
+          <div>
+            {/* For positioning */}
+          </div>
       </header>
     );
 }
