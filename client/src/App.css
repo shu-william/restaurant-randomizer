@@ -3,3 +3,6 @@ body{
     background-color: rgb(255, 252, 250);
 }
 
+html {
+    overflow-y: scroll;
+}

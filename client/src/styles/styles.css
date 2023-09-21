@@ -32,6 +32,7 @@
     width: 100%;
     height: 5em;
     background-color: rgb(255, 253, 208);
+    z-index: 999;
 }
 
 .linkStyle {
@@ -69,13 +70,15 @@
 
 .formClass {
     display: flex;
+    position: fixed;
     border-style: solid;
     border-color: rgb(255, 228, 179);
     border-width: .4em;
     border-radius: 2em;
     padding: 1.2em;
     width: 20em;
-    margin-top: 8.5em;
+    top: 8.5em;
+    left: 16em;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgb(255, 228, 179);
@@ -105,6 +108,8 @@ select {
 .resList {
     margin-top: 8.5em;
     margin-bottom: 5em;
+    margin-left: 45em;
+    
 }
 
 .ratingStyle {
@@ -120,6 +125,7 @@ select {
 /* Buttons */
 
 .btnStyle {
+    position: fixed;
     background-color:rgb(255, 178, 115);
     color: rgb(250, 243, 211);
     border-radius: 12px;
@@ -127,9 +133,8 @@ select {
     border-style: none;
     font-family: 'Roboto Mono', monospace;
     font-size: .9em;
-    margin-top: 1.6em;
-    margin-left: .2em;
-    margin-right: .2em;
+    top: 33em;
+    left: 18em;
 }
 
 .btnStyle:hover {
@@ -277,11 +282,8 @@ select {
 
 /* Mobile Perspective*/
 
-@media all and (max-width: 600px){
+@media all and (max-width: 1200px){
 
-    #orangeLogo {
-        visibility: hidden;
-    }
 
     html, body {
         height: 100%;
@@ -297,6 +299,7 @@ select {
     }
 
     .btnStyle {
+        position: static;
         margin-top: 2em;
         margin-left: 26%;
         margin-bottom: 1em;
@@ -322,6 +325,11 @@ select {
         margin-bottom: 0;
         margin-left: -0.4em;
     }
+    
+    .resList {
+        margin-left: 1em;
+        margin-top: 3em;
+    }
 
     .resFilter {
         margin-top: 2.5em;
@@ -329,6 +337,8 @@ select {
     }
 
     .marginL {
+        display: flex;
+        justify-content: center;
         background-color: rgb(255, 243, 230);
         margin-left: 0;
         margin-top: 2em;
@@ -336,7 +346,7 @@ select {
     }
 
     .footerContent {
-        margin: 0.4em 1em;
+        margin: .6em 1em;
     }
 
     .pagination {
