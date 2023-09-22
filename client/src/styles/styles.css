@@ -135,6 +135,7 @@ select {
     font-size: .9em;
     top: 33em;
     left: 18em;
+    z-index: -999;
 }
 
 .btnStyle:hover {
@@ -205,6 +206,7 @@ select {
 .favText {
     text-align: center;
     margin-top: 1em;
+    margin-bottom: 5em;
 }
 
 /* Login Page */
