@@ -47,7 +47,7 @@
     transform: translateY(2px);
 }
 
-#orangeLogo {
+.orangeLogo {
     background-image: url('../images/orange.png');
     background-size: cover;
     width: 3em;
@@ -283,7 +283,6 @@ select {
 
 @media all and (max-width: 1200px){
 
-
     html, body {
         height: 100%;
         display: flex;
@@ -309,7 +308,6 @@ select {
     .filterStyle {
         position: static;
         display: flex;
-        justify-content: end;
         align-items: center;
     }
 

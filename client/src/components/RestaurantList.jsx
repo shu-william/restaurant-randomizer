@@ -116,7 +116,7 @@ const RestaurantList = (props) => {
 
   function addFavorite(restaurant) {
     let elem = document.getElementById(restaurant.id)
-    if(elem.innerHTML === "Added to favorites!"){
+    if (elem.innerHTML === "Added to favorites!") {
       return;
     }
     axios
@@ -144,25 +144,28 @@ const RestaurantList = (props) => {
       }
     })
     reviewExcerpt = reviewExcerpt.data.reviews[0];
-    // Adjust and design the alert to contain excerpt, name, rating, and picture
     MySwal.fire({
       title: (
+        <h1>{randomRestaurant.name}</h1>
+      ),
+      html: (
         <div>
-          <h1>{randomRestaurant.name}</h1>
           <p>{reviewExcerpt.text} - {reviewExcerpt.user.name}</p>
-          <p>
-            <a
-              href={randomRestaurant.url}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img src={yelp_logo} alt="yelp_logo" className="logoStyle" />
-            </a>
-          </p>
         </div>
       ),
-      color: "orange",
+      color: "black",
       background: "white",
+      confirmButtonText: (
+        <img src={yelp_logo} alt="yelp logo" className="logoStyle" />
+      ),
+      confirmButtonColor: 'rgb(255, 228, 179)',
+      showCancelButton: true,
+      cancelButtonText: 'OK',
+      cancelButtonColor: 'blue',
+    }).then((result) => {
+      if (result.value) {
+        window.open(randomRestaurant.url, "_blank", "noreferrer");
+      }
     });
   }
 
