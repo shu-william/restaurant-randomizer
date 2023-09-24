@@ -138,19 +138,19 @@ const RestaurantList = (props) => {
   async function pickRandom() {
     let randomRestaurant =
       fetchedData[Math.floor(Math.random() * fetchedData.length)];
-    let reviewExcerpt = await axios.get('http://localhost:8000/yelp_api/review', {
+    let reviewExcerpts = await axios.get('http://localhost:8000/yelp_api/review', {
       params: {
         restaurantId: randomRestaurant.id
       }
     })
-    reviewExcerpt = reviewExcerpt.data.reviews[0];
+    reviewExcerpts = reviewExcerpts.data.reviews.slice(0,2);
     MySwal.fire({
       title: (
         <h1>{randomRestaurant.name}</h1>
       ),
       html: (
         <div>
-          <p>{reviewExcerpt.text} - {reviewExcerpt.user.name}</p>
+          <p>"{reviewExcerpts[0].text}" - {reviewExcerpts[0].user.name}</p>
         </div>
       ),
       color: "black",
