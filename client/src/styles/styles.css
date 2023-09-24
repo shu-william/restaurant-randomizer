@@ -70,15 +70,12 @@
 
 .formClass {
     display: flex;
-    position: fixed;
     border-style: solid;
     border-color: rgb(255, 228, 179);
     border-width: .4em;
     border-radius: 2em;
     padding: 1.2em;
     width: 20em;
-    top: 8.5em;
-    left: 16em;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgb(255, 228, 179);
@@ -87,8 +84,11 @@
 }
 
 .filterStyle {
-    position: sticky;
-    top: 155px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 8.5em;
+    left: 16em;
     justify-content: flex-start;
 }
 
@@ -125,7 +125,6 @@ select {
 /* Buttons */
 
 .btnStyle {
-    position: fixed;
     background-color:rgb(255, 178, 115);
     color: rgb(250, 243, 211);
     border-radius: 12px;
@@ -133,8 +132,7 @@ select {
     border-style: none;
     font-family: 'Roboto Mono', monospace;
     font-size: .9em;
-    top: 33em;
-    left: 18em;
+    margin-top: 2em;
     z-index: -999;
 }
 
@@ -199,7 +197,6 @@ select {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.9em;
     color: rgb(255, 151, 82);
-    text-align: center;
     margin-top: 4em;
 }
 
@@ -300,13 +297,6 @@ select {
         margin: 0;
     }
 
-    .btnStyle {
-        position: static;
-        margin-top: 2em;
-        margin-left: 26%;
-        margin-bottom: 1em;
-    }
-
     .linkStyle {
         margin: 0em 0.4em 0em 0.4em;
     }
@@ -314,13 +304,19 @@ select {
     .formClass {
         margin-top: 7em;
         width: 29em;
-        position: static;
     }
 
     .filterStyle {
-        display: flex;
-        justify-content: center;
         position: static;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .btnStyle {
+        margin-top: 2em;
+        margin-bottom: 1em;
+        margin-left: 25%;
     }
 
     .navbarStyle {
