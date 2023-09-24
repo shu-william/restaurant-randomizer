@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import orange from "../images/orange.png";
 
 const MySwal = withReactContent(Swal);
 
@@ -24,16 +23,22 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
 
     function orangix() {
       MySwal.fire({
-        title: (
-          <div>
-            <h1>orangix</h1>
-            <p>pizza is a flour</p>
-            <p>carbatuib is a blower</p>
-            <p>the end</p>
-          </div>
-        ),
+        title: 'orangix',
+        html: 
+          (
+            <div>
+              <p>pizza is a flour</p>
+              <p>carbatuib is a blower</p>
+              <p>the end</p>
+            </div>
+          )
+        ,
         color: "orange",
         background: "white",
+        focusConfirm: false,
+        confirmButtonText: 
+          '🍊',
+        confirmButtonColor: 'rgb(255, 228, 179)'
       })
     }
 
@@ -41,7 +46,7 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
         
       <header className="navFilterStyle">
           <div>
-            <button type="button" onClick={orangix} id="orangeLogo"></button>
+            <button type="button" onClick={orangix} className="orangeLogo"></button>
           </div>
           <nav className="navbar navbarStyle">
             <Link to={"/home"} className="nav-link linkStyle">

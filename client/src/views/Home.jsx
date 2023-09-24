@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import SearchForm from '../components/SearchForm';
 import RestaurantList from '../components/RestaurantList';
-// import Navbar from '../components/Navbar';
 import "../styles/styles.css";
 
 const Home = (props) => {
@@ -18,7 +17,6 @@ const Home = (props) => {
     return (
       <div>
         <div>
-          {/* <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> */}
           <div className="d-flex homeClass">
             <div>
               <SearchForm
