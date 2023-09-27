@@ -145,14 +145,17 @@ const RestaurantList = (props) => {
     })
     reviewExcerpts = reviewExcerpts.data.reviews.slice(0,2);
     MySwal.fire({
-      title: (
-        <h1>{randomRestaurant.name}</h1>
-      ),
+      title: 
+        randomRestaurant.name
+      ,
       html: (
         <div>
-          <p>"{reviewExcerpts[0].text}" - {reviewExcerpts[0].user.name}</p>
+          <img src={ratingImages[randomRestaurant.rating].src} alt={ratingImages[randomRestaurant.rating].alt} className="ratingStyle mb-4" />
+          <p>"{reviewExcerpts[0].text}" <br/> - {reviewExcerpts[0].user.name}</p>
         </div>
       ),
+      imageUrl: randomRestaurant.image_url,
+      imageWidth: 300,
       color: "black",
       background: "white",
       confirmButtonText: (

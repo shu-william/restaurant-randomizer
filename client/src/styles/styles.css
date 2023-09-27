@@ -58,6 +58,10 @@
     background-color: rgb(255, 253, 208);
 }
 
+.orangeLogoDiv {
+    z-index: 9999;
+}
+
 #orangeLogo:hover {
     opacity: 0.6;
 }
