@@ -45,7 +45,7 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
     return (
         
       <header className="navFilterStyle">
-          <div>
+          <div className="orangeLogoDiv">
             <button type="button" onClick={orangix} className="orangeLogo"></button>
           </div>
           <nav className="navbar navbarStyle">

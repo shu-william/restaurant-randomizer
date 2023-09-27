@@ -90,25 +90,40 @@ const Favorites = (props) => {
             .catch(err => console.log(err))
     }
 
-    function pickRandom() {
-        let randomRestaurant = favoriteRestaurants[Math.floor(Math.random() * favoriteRestaurants.length)];
+    async function pickRandom() {
+        let randomRestaurant =
+            favoriteRestaurants[Math.floor(Math.random() * favoriteRestaurants.length)];
+        let reviewExcerpts = await axios.get('http://localhost:8000/yelp_api/review', {
+            params: {
+                restaurantId: randomRestaurant.id
+            }
+        })
+        reviewExcerpts = reviewExcerpts.data.reviews.slice(0,2);
         MySwal.fire({
-            title: (
+            title: 
+                randomRestaurant.name
+            ,
+            html: (
                 <div>
-                    <p>{randomRestaurant.name}</p>
-                    <p>
-                        <a
-                            href={randomRestaurant.url}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                        >
-                            <img src={yelp_logo} alt="yelp_logo" className="logoStyle" />
-                        </a>
-                    </p>
+                <img src={ratingImages[randomRestaurant.rating].src} alt={ratingImages[randomRestaurant.rating].alt} className="ratingStyle mb-4" />
+                <p>"{reviewExcerpts[0].text}" <br/> - {reviewExcerpts[0].user.name}</p>
                 </div>
-                ),
-            color: "orange",
+            ),
+            imageUrl: randomRestaurant.image_url,
+            imageWidth: 300,
+            color: "black",
             background: "white",
+            confirmButtonText: (
+                <img src={yelp_logo} alt="yelp logo" className="logoStyle" />
+            ),
+            confirmButtonColor: 'rgb(255, 228, 179)',
+            showCancelButton: true,
+            cancelButtonText: 'OK',
+            cancelButtonColor: 'blue',
+        }).then((result) => {
+            if (result.value) {
+                window.open(randomRestaurant.url, "_blank", "noreferrer");
+            }
         });
     }
 
