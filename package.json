@@ -1,0 +1,24 @@
+{
+  "name": "restaurant_randomizer",
+  "version": "1.0.0",
+  "description": "A web application that draws from Yelp's Fusion third-party API to retrieve a list of restaurants which users can filter through, add to their favorites, and select a random restaurant from the filtered list to decide what to eat. For my fellow indecisive eaters.",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd server && npm install",
+    "start-server": "cd server && node server.js",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "start-client": "cd client && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shu-william/restaurant-randomizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shu-william/restaurant-randomizer/issues"
+  },
+  "homepage": "https://github.com/shu-william/restaurant-randomizer#readme"
+}
