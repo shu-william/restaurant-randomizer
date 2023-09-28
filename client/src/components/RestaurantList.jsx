@@ -84,7 +84,7 @@ const RestaurantList = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/users/currentuser", {
+      .get(`${process.env.SERVER}/api/users/currentuser`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -121,7 +121,7 @@ const RestaurantList = (props) => {
     }
     axios
       .patch(
-        "http://localhost:8000/api/users/favorites",
+        `${process.env.SERVER}/api/users/favorites`,
         {
           $push: { favorites: restaurant },
         },
@@ -138,7 +138,7 @@ const RestaurantList = (props) => {
   async function pickRandom() {
     let randomRestaurant =
       fetchedData[Math.floor(Math.random() * fetchedData.length)];
-    let reviewExcerpts = await axios.get('http://localhost:8000/yelp_api/review', {
+    let reviewExcerpts = await axios.get(`${process.env.SERVER}/yelp_api/review`, {
       params: {
         restaurantId: randomRestaurant.id
       }

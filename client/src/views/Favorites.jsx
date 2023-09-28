@@ -66,7 +66,7 @@ const Favorites = (props) => {
 
     useEffect(() => {
         setFavoriteRestaurants([]);
-        axios.get("http://localhost:8000/api/users/currentuser", { withCredentials:true })
+        axios.get(`${process.env.SERVER}/api/users/currentuser`, { withCredentials:true })
             .then(res => {
                 // console.log(res);
                 setLoggedIn(true);
@@ -79,7 +79,7 @@ const Favorites = (props) => {
     }, [])
 
     function removeFavorite(id) {
-        axios.patch("http://localhost:8000/api/users/favorites", {
+        axios.patch(`${process.env.SERVER}/api/users/favorites`, {
             "$pull":
                 {"favorites": {"id": id}}
         }, { withCredentials: true })
@@ -93,7 +93,7 @@ const Favorites = (props) => {
     async function pickRandom() {
         let randomRestaurant =
             favoriteRestaurants[Math.floor(Math.random() * favoriteRestaurants.length)];
-        let reviewExcerpts = await axios.get('http://localhost:8000/yelp_api/review', {
+        let reviewExcerpts = await axios.get(`${process.env.SERVER}/yelp_api/review`, {
             params: {
                 restaurantId: randomRestaurant.id
             }
