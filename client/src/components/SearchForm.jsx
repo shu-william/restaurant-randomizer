@@ -131,7 +131,7 @@ const SearchForm = (props) => {
         setErrors("");
         if(formValidator()) {
           if (latitude && longitude) { // send coordinates if available
-            axios.get('http://localhost:8000/yelp_api', {
+            axios.get(`${process.env.REACT_APP_API_URI}/yelp_api`, {
               params: {
                 latitude: latitude,
                 longitude: longitude,
@@ -149,7 +149,7 @@ const SearchForm = (props) => {
                 }
             })
           } else { // otherwise use location provided by user
-            axios.get('http://localhost:8000/yelp_api', {
+            axios.get(`${process.env.REACT_APP_API_URI}/yelp_api`, {
                 params: {
                     location: location,
                     cost: cost,

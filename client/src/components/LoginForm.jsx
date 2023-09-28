@@ -16,7 +16,7 @@ const LoginForm = ({ loggedIn, setLoggedIn }) => {
 
     const registerHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/users/register", {
+        axios.post(`${process.env.REACT_APP_API_URI}/api/users/register`, {
             username,
             email,
             password,
@@ -45,7 +45,7 @@ const LoginForm = ({ loggedIn, setLoggedIn }) => {
 
     const loginHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/users/login", {
+        axios.post(`${process.env.REACT_APP_API_URI}/api/users/login`, {
             email,
             password
         }, { withCredentials: true })
