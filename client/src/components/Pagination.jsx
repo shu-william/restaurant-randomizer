@@ -11,7 +11,7 @@ const Pagination = (props) => {
 
     function nextResults() {
         if (latitude && longitude) {
-            axios.get(`${process.env.SERVER}/yelp_api`, {
+            axios.get(`${process.env.REACT_APP_API_URI}/yelp_api`, {
                 params: {
                     latitude: latitude,
                     longitude: longitude,
@@ -25,7 +25,7 @@ const Pagination = (props) => {
                 setFetchedData(res.data.businesses);
             })
         } else {
-            axios.get(`${process.env.SERVER}/yelp_api`, {
+            axios.get(`${process.env.REACT_APP_API_URI}/yelp_api`, {
                 params: {
                     location: location,
                     cost: cost,
@@ -42,7 +42,7 @@ const Pagination = (props) => {
 
     function prevResults() {
         if (latitude && longitude) {
-            axios.get(`${process.env.SERVER}/yelp_api`, {
+            axios.get(`${process.env.REACT_APP_API_URI}/yelp_api`, {
                 params: {
                     latitude: latitude,
                     longitude: longitude,
@@ -56,7 +56,7 @@ const Pagination = (props) => {
                 setFetchedData(res.data.businesses);
             })
         } else {
-            axios.get(`${process.env.SERVER}/yelp_api`, {
+            axios.get(`${process.env.REACT_APP_API_URI}/yelp_api`, {
                 params: {
                     location: location,
                     cost: cost,

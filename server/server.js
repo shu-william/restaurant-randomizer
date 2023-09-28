@@ -6,7 +6,11 @@ const port = 8000;
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin:"http://localhost:3000", credentials:true }));
+
+// Development Frontend URI
+// app.use(cors({ origin:"http://localhost:3000", credentials:true }));
+app.use(cors({ origin:"", credentials:true }));
+
 require("./config/mongoose.config");
 require("./routes/yelp_api.route")(app);
 require("./routes/user.route")(app);

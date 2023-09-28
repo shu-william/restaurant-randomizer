@@ -12,7 +12,7 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
 
     function logoutUser(e) {
         e.preventDefault();
-        axios.post(`${process.env.SERVER}/api/users/logout`, {}, { withCredentials: true })
+        axios.post(`${process.env.REACT_APP_API_URI}/api/users/logout`, {}, { withCredentials: true })
             .then(res => {
                 console.log(res);
                 setLoggedIn(false);

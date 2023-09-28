@@ -14,7 +14,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
 /*  useEffect(() => {
-    axios.get("http://localhost:8000/api/users/currentuser", { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_API_URI}/api/users/currentuser`, { withCredentials: true })
         .then(res => {
           console.log("Logged in")
           setLoggedIn(true);
