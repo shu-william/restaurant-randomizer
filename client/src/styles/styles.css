@@ -151,13 +151,14 @@ select {
 .locationBtn {
     background: url('../images/gps-icon.jpg');
     background-repeat: no-repeat;
-    background-position: 30%;
     background-color: white;
-    background-size: 18px;
+    background-size: contain;
+    background-position-x: -0.05em;
+    background-position-y: 30%;
     border-radius: 4px;
-    border: 1px solid rgba(68, 252, 236, 0.726);
-    height: 30px;
-    width: 30px;
+    border: 1px solid rgba(142, 247, 238, 0.562);
+    height: 1.4em;
+    width: 1.4em;
     margin-left: 0.4em;
 }
 
@@ -306,7 +307,7 @@ select {
 
     .formClass {
         margin-top: 7em;
-        width: 29em;
+        width: 24em;
     }
 
     .filterStyle {
@@ -318,7 +319,7 @@ select {
     .btnStyle {
         margin-top: 2em;
         margin-bottom: 1em;
-        margin-left: 25%;
+        margin-left: 20%;
     }
 
     .navbarStyle {
