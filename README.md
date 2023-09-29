@@ -6,7 +6,7 @@ A web application that draws from Yelp's Fusion third-party API to retrieve a li
 - Adjust Yelp API calls to retrieve all relevant data as opposed to in groups of 20 (optional, would result in more calls used per search)
 - Adjust CSS layout to accommodate excess white space
 - Add loading icon when waiting to fetch API data
+- Adjust restaurant list to keep Yelp links on the right instead of overflowing to the next line
 
 ## Known bugs/issues
-- Borders do not fit the entire screen on all media sizes
 - Location services button is not fully covered on all media sizes
