@@ -316,6 +316,11 @@ select {
         align-items: center;
     }
 
+    .locationBtn {
+        appearance: none;
+        padding: 0;
+    }
+
     .btnStyle {
         margin-top: 2em;
         margin-bottom: 1em;
