@@ -9,4 +9,4 @@ A web application that draws from Yelp's Fusion third-party API to retrieve a li
 - Adjust restaurant list to keep Yelp links on the right instead of overflowing to the next line
 
 ## Known bugs/issues
-- Location services button is not fully covered on all media sizes
+All good!
