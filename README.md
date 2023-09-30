@@ -9,4 +9,4 @@ A web application that draws from Yelp's Fusion third-party API to retrieve a li
 - Add cards for each restaurant in the list to standardize formatting
 
 ## Known bugs/issues
-All good!
+  All good!
