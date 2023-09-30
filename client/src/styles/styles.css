@@ -113,7 +113,12 @@ select {
     margin-top: 8.5em;
     margin-bottom: 5em;
     margin-left: 45em;
-    
+}
+
+.resAddressDiv {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
 }
 
 .ratingStyle {

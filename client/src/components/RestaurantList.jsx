@@ -186,15 +186,17 @@ const RestaurantList = (props) => {
           ? fetchedData.map((restaurant) => {
               return (
                 <div key={restaurant.id} className="my-3">
-                  <h3>{restaurant.name}</h3>
-                  <p>
-                    {restaurant.location.address1}, {restaurant.location.city}{" "}
-                    {restaurant.location.zip_code}, {((restaurant.distance) * 0.00062137).toFixed(1)} mi
+                  <h3 className="w-75">{restaurant.name}</h3>
+                  <div className="resAddressDiv">
+                    <p>
+                      {restaurant.location.address1}, {restaurant.location.city}{" "}
+                      {restaurant.location.zip_code}, {((restaurant.distance) * 0.00062137).toFixed(1)} mi  
+                    </p>
                     <a
                       href={restaurant.url}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="mx-2"
+                      className="mx-4"
                     >
                       <img
                         src={yelp_logo}
@@ -202,7 +204,7 @@ const RestaurantList = (props) => {
                         className="logoStyle"
                       />
                     </a>
-                  </p>
+                  </div>
                   <p>
                     <img
                       src={ratingImages[restaurant.rating].src}
