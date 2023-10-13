@@ -1,7 +1,7 @@
 # Restaurant Randomizer
 A web application that draws from Yelp's Fusion third-party API to retrieve a list of restaurants which users can filter through, add to their favorites, and select a random restaurant from the filtered list to decide what to eat. For my fellow indecisive eaters.
 
-Live link: https://orangix.onrender.com/
+Live site: https://orangix.onrender.com/ \
 *Note: please allow a brief delay when making an initial search, as the server needs time to spin up on its current service plan.
 
 ## Product Backlog
